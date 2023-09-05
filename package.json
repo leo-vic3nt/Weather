@@ -1,0 +1,19 @@
+{
+    "name": "quick-weather",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^6.6.0",
+        "@typescript-eslint/parser": "^6.6.0",
+        "eslint": "^8.48.0",
+        "eslint-config-prettier": "^9.0.0",
+        "typescript": "^5.0.2",
+        "vite": "^4.4.5"
+    }
+}
