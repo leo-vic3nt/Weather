@@ -6,8 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Vite + TS</title>
     </head>
+
     <body>
-        <div id="app"></div>
+        <div id="app">
+            <form id="location-query-form">
+                <label for="location-query"></label>
+                <input
+                    type="text"
+                    name="location"
+                    id="location-query"
+                    required
+                />
+                <button id="query-form-btn">Search</button>
+            </form>
+        </div>
         <script type="module" src="/src/main.ts"></script>
     </body>
 </html>
