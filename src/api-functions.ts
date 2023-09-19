@@ -71,31 +71,19 @@ interface WeatherData {
     forecast: Forecast;
 }
 
-export async function getWeatherData(location: string): Promise<WeatherData> {
+export async function getWeatherData(queryParam: string): Promise<WeatherData> {
     const data = await fetch(
-        `http://api.weatherapi.com/v1/current.json?key=${KEY}&days=3&q=${location}`
+        `http://api.weatherapi.com/v1/current.json?key=${KEY}&days=3&q=${queryParam}`
     );
     return await data.json();
 }
 
-function userLocationPromise(): Promise<GeolocationPosition | GeolocationPositionError> {
+export function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true });
     });
 }
 
 export async function onLoadWeatherQuery(): Promise<WeatherData> {
-    try {
-        const userLocation = await userLocationPromise();
-
-        if (userLocation instanceof GeolocationPositionError) {
-            throw new Error();
-        }
-
-        return await getWeatherData(
-            `${userLocation.coords.latitude},${userLocation.coords.longitude}`
-        );
-    } catch (error) {
-        return await getWeatherData("auto:ip");
-    }
+    return await getWeatherData("auto:ip");
 }
