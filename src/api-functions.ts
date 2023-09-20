@@ -1,6 +1,7 @@
 import { ApiInternalError, GenericError, LocationNotFound } from "./errors";
 
-const KEY = "fdc857fd0eaa40b6a1925541230509asd";
+const KEY = "fdc857fd0eaa40b6a1925541230509";
+const apiURL = "http://api.weatherapi.com/v1/current.json";
 
 interface ApiError {
     error: {
@@ -80,33 +81,27 @@ interface WeatherData {
     forecast: Forecast;
 }
 
-function waitOneSecond() {
-    return new Promise(resolve => {
-        setTimeout(resolve, 1000);
-    });
-}
-
 export async function getWeatherData(location: string): Promise<WeatherData> {
-    let extraTries = 2;
+    const wait = (delay: number) => new Promise((resolve) => setTimeout(resolve, delay));
 
-    while (extraTries > 0) {
+    let nrOfTries = 0;
+    while (nrOfTries < 3) {
+        nrOfTries++;
         try {
-            const response = await fetch(
-                `http://api.weatherapi.com/v1/current.json?key=${KEY}&days=3&q=${location}`
-            );
+            const request = await fetch(`${apiURL}?key=${KEY}&days=3&q=${location}`);
 
-            if (!response.ok) {
-                const errorJson: ApiError = await response.json();
-                if (errorJson.error.code === 1006) throw new LocationNotFound(location);
-                if (errorJson.error.code === 9999) throw new ApiInternalError();
+            if (request.ok) {
+                const sucessJson: WeatherData = await request.json();
+                return sucessJson;
             }
 
-            const sucessJson: WeatherData = await response.json();
-            return sucessJson;
+            const errorJson: ApiError = await request.json();
+            if (errorJson.error.code === 1006) throw new LocationNotFound(location);
+            if (errorJson.error.code === 9999) throw new ApiInternalError();
+            throw new GenericError();
         } catch (error) {
-            extraTries--;
-            if (extraTries === 0) throw error;
-            await waitOneSecond();
+            if (error instanceof LocationNotFound || error instanceof ApiInternalError) throw error;
+            await wait(1000);
         }
     }
 
@@ -122,3 +117,5 @@ export function requestGeolocation(): Promise<GeolocationPosition | GeolocationP
 export async function onLoadWeatherQuery(): Promise<WeatherData> {
     return await getWeatherData("auto:ip");
 }
+
+
