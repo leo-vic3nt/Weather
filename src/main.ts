@@ -1,3 +1,3 @@
-import { getWeatherData } from "./api-functions";
+import { getWeatherData } from "./weather-api";
 
 getWeatherData("!@#%@").then(res => console.log(res));

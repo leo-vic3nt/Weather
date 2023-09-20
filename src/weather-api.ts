@@ -113,9 +113,6 @@ export function requestGeolocation(): Promise<GeolocationPosition | GeolocationP
         navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true });
     });
 }
-
 export async function onLoadWeatherQuery(): Promise<WeatherData> {
     return await getWeatherData("auto:ip");
 }
-
-
