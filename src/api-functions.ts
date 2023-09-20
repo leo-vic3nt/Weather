@@ -1,4 +1,13 @@
-const KEY = "fdc857fd0eaa40b6a1925541230509";
+import { ApiInternalError, GenericError, LocationNotFound } from "./errors";
+
+const KEY = "fdc857fd0eaa40b6a1925541230509asd";
+
+interface ApiError {
+    error: {
+        code: number;
+        message: string;
+    };
+}
 
 interface Location {
     name: string;
@@ -71,11 +80,37 @@ interface WeatherData {
     forecast: Forecast;
 }
 
-export async function getWeatherData(queryParam: string): Promise<WeatherData> {
-    const data = await fetch(
-        `http://api.weatherapi.com/v1/current.json?key=${KEY}&days=3&q=${queryParam}`
-    );
-    return await data.json();
+function waitOneSecond() {
+    return new Promise(resolve => {
+        setTimeout(resolve, 1000);
+    });
+}
+
+export async function getWeatherData(location: string): Promise<WeatherData> {
+    let extraTries = 2;
+
+    while (extraTries > 0) {
+        try {
+            const response = await fetch(
+                `http://api.weatherapi.com/v1/current.json?key=${KEY}&days=3&q=${location}`
+            );
+
+            if (!response.ok) {
+                const errorJson: ApiError = await response.json();
+                if (errorJson.error.code === 1006) throw new LocationNotFound(location);
+                if (errorJson.error.code === 9999) throw new ApiInternalError();
+            }
+
+            const sucessJson: WeatherData = await response.json();
+            return sucessJson;
+        } catch (error) {
+            extraTries--;
+            if (extraTries === 0) throw error;
+            await waitOneSecond();
+        }
+    }
+
+    throw new GenericError();
 }
 
 export function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
