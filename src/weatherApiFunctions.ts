@@ -36,6 +36,6 @@ export async function getWeatherData(location: string): Promise<WeatherData> {
     throw new GenericError();
 }
 
-export async function onLoadWeatherQuery(): Promise<WeatherData> {
+export async function firstLoadWeatherQuery(): Promise<WeatherData> {
     return await getWeatherData("auto:ip");
 }
