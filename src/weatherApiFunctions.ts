@@ -1,11 +1,11 @@
 import { WeatherData, ApiError } from "./weatherApiInterfaces";
-import { ApiInternalError, GenericError, LocationNotFound } from "./errorFunctions";
-import { sleep } from "./helperFunctions";
+import { ApiInternalError, GenericError, GeolocationError, LocationNotFound } from "./errorFunctions";
+import { requestGeolocation, sleep } from "./helperFunctions";
 
 const KEY = "fdc857fd0eaa40b6a1925541230509";
 const API_URL = "http://api.weatherapi.com/v1/forecast.json";
 
-export async function getWeatherData(location: string): Promise<WeatherData> {
+export async function fetchWeatherData(location: string): Promise<WeatherData> {
     const MAX_TRIES = 3;
     for (let i = 0; i < MAX_TRIES; i++) {
         try {
@@ -36,6 +36,24 @@ export async function getWeatherData(location: string): Promise<WeatherData> {
     throw new GenericError();
 }
 
-export async function firstLoadWeatherQuery(): Promise<WeatherData> {
-    return await getWeatherData("auto:ip");
+export async function getWeatherByIp(): Promise<WeatherData> {
+    return await fetchWeatherData("auto:ip");
+}
+
+export async function getWeatherByGeolocation(): Promise<WeatherData> {
+    try {
+        const geolocation = await requestGeolocation();
+
+        /* This is here for typescript to infer GeolocationPosition
+        to geolocation on the rest of the funcion */
+        if (geolocation instanceof GeolocationPositionError) {
+            throw geolocation;
+        }
+
+        const [latitude, longitude] = [geolocation.coords.latitude, geolocation.coords.longitude];
+        return await fetchWeatherData(`${latitude},${longitude}`);
+    } catch (err) {
+        const geolocationError = err as GeolocationPositionError;
+        throw new GeolocationError(geolocationError);
+    }
 }
