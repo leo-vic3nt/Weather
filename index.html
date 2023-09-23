@@ -15,9 +15,20 @@
 
     <body>
         <div id="app">
-            <label for="location-query">Location</label>
-            <input type="text" name="location" id="location-query" required />
-            <button id="query-form-btn">Search</button>
+            <form id="location-form">
+                <label for="location-input">Location</label>
+                <input
+                    type="text"
+                    name="location"
+                    id="location-input"
+                    required
+                    minlength="2"
+                    maxlength="20"
+                    pattern="^(?=.{2,22}$)[A-Za-z]+(?:\s[A-Za-z]+)*$"
+                    title="At least 2 characters, no numbers or punctuation" />
+
+                <button>Search</button>
+            </form>
         </div>
         <script type="module" src="/src/main.ts"></script>
     </body>
