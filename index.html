@@ -15,7 +15,7 @@
 
     <body>
         <div id="app">
-            <form id="location-form">
+            <form id="location-form" style="display: none">
                 <label for="location-input">Location</label>
                 <input
                     type="text"
@@ -26,7 +26,6 @@
                     maxlength="20"
                     pattern="^(?=.{2,22}$)[A-Za-z]+(?:\s[A-Za-z]+)*$"
                     title="At least 2 characters, no numbers or punctuation" />
-
                 <button>Search</button>
             </form>
         </div>

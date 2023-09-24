@@ -1,6 +1,28 @@
 :root {
     font-family: "Inter", sans-serif;
+
+    --fs-base-size: 1em;
+    --text-scale-ratio: 1.2;
+
+    --fs-sm: calc(1em / var(--text-scale-ratio));
+    --fs-md: calc(1em * var(--text-scale-ratio));
+    --fs-lg: calc(var(--fs-md) * var(--text-scale-ratio));
+    --fs-xl: calc(var(--fs-lg) * var(--text-scale-ratio));
+    --fs-xxl: calc(var(--fs-xl) * var(--text-scale-ratio));
+    --fs-xxxl: calc(var(--fs-xxl) * var(--text-scale-ratio));
+
+    --fw-light: 300;
+    --fw-semi-bold: 600;
+    --fw-extra-bold: 800;
+
+    --space-xs: 0.5em;
+    --space-sm: 1em;
+    --space-md: 1.25em;
+    --space-lg: 1.5em;
+    --space-xlg: 2em;
+    --space-xxl: 2.5em;
 }
+
 @supports (font-variation-settings: normal) {
     :root {
         font-family: "Inter var", sans-serif;
