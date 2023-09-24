@@ -42,18 +42,17 @@ export async function getWeatherByIp(): Promise<WeatherData> {
 
 export async function getWeatherByGeolocation(): Promise<WeatherData> {
     try {
-        const geolocation = await requestGeolocation();
-
-        /* This is here for typescript to infer GeolocationPosition
-        to geolocation on the rest of the funcion */
-        if (geolocation instanceof GeolocationPositionError) {
-            throw geolocation;
-        }
+        /* I can safely cast the type to GeolocationPosition since any GeolocationPositionError
+        would throw */
+        const geolocation = (await requestGeolocation()) as GeolocationPosition;
 
         const [latitude, longitude] = [geolocation.coords.latitude, geolocation.coords.longitude];
+
         return await fetchWeatherData(`${latitude},${longitude}`);
     } catch (err) {
-        const geolocationError = err as GeolocationPositionError;
-        throw new GeolocationError(geolocationError);
+        if (err instanceof GeolocationPositionError) {
+            throw new GeolocationError(err);
+        }
+        throw err;
     }
 }
