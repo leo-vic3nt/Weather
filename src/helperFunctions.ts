@@ -10,7 +10,7 @@ export function sleep(delay: number): Promise<void> {
     });
 }
 
-export function getDateFormated(): string {
+export function getFormatedDate(): string {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
@@ -23,3 +23,10 @@ export function getDateFormated(): string {
     return `${day}, ${dayNr} ${month} ${year}`;
 }
 
+export function getFormatedTime(): string {
+    const currentDate = new Date();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+
+    return `${hours}:${minutes}`;
+}
