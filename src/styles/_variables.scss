@@ -1,5 +1,5 @@
 :root {
-    font-family: "Inter", sans-serif;
+    --neutral-white: #f4f3f2;
 
     --fs-base-size: 1em;
     --text-scale-ratio: 1.2;
@@ -12,7 +12,9 @@
     --fs-xxxl: calc(var(--fs-xxl) * var(--text-scale-ratio));
 
     --fw-light: 300;
+    --fw-lil-bold: 500;
     --fw-semi-bold: 600;
+    --fw-bold: 700;
     --fw-extra-bold: 800;
 
     --space-xs: 0.5em;
@@ -21,10 +23,4 @@
     --space-lg: 1.5em;
     --space-xlg: 2em;
     --space-xxl: 2.5em;
-}
-
-@supports (font-variation-settings: normal) {
-    :root {
-        font-family: "Inter var", sans-serif;
-    }
 }

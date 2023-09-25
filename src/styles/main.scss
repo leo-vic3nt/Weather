@@ -1,0 +1,28 @@
+@use "./variables";
+@use "../components/CurrentDate/currentDate";
+@use "../components/SearchBar/searchBar";
+
+:root {
+    font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: "Inter var", sans-serif;
+    }
+}
+
+/* Make the div#app take the whole page */
+body {
+    display: flex;
+    flex-direction: column;
+
+    #app {
+        flex-grow: 1;
+    }
+}
+
+/* Layout */
+#app {
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
