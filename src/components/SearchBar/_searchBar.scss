@@ -1,0 +1,26 @@
+.search {
+    width: fit-content;
+    display: flex;
+    transition: all ease-in-out 0.5s;
+
+    &:focus-within {
+        box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
+    }
+
+    &__input {
+        background-color: var(--neutral-white);
+        border: none;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__button {
+        display: flex;
+        align-self: center;
+        padding: 0;
+        border: none;
+        background-color: var(--neutral-white);
+    }
+}
