@@ -5,7 +5,7 @@ import { requestGeolocation, sleep } from "./helperFunctions";
 const KEY = "fdc857fd0eaa40b6a1925541230509";
 const API_URL = "http://api.weatherapi.com/v1/forecast.json";
 
-export async function fetchWeatherData(location: string): Promise<WeatherData> {
+export async function getWeatherData(location: string): Promise<WeatherData> {
     const MAX_TRIES = 3;
     for (let i = 0; i < MAX_TRIES; i++) {
         try {
@@ -37,7 +37,7 @@ export async function fetchWeatherData(location: string): Promise<WeatherData> {
 }
 
 export async function getWeatherByIp(): Promise<WeatherData> {
-    return await fetchWeatherData("auto:ip");
+    return await getWeatherData("auto:ip");
 }
 
 export async function getWeatherByGeolocation(): Promise<WeatherData> {
@@ -48,7 +48,7 @@ export async function getWeatherByGeolocation(): Promise<WeatherData> {
 
         const [latitude, longitude] = [geolocation.coords.latitude, geolocation.coords.longitude];
 
-        return await fetchWeatherData(`${latitude},${longitude}`);
+        return await getWeatherData(`${latitude},${longitude}`);
     } catch (err) {
         if (err instanceof GeolocationPositionError) {
             throw new GeolocationError(err);

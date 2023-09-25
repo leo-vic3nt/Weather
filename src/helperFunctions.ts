@@ -38,10 +38,13 @@ export function getFormattedTime(): string {
 export function sanitizeInputString(string: string): string {
     // Normalize the Unicode format
     const normalizedString = string.normalize("NFD");
-    // Replace accented characters with their normal counterparts
-    const noAccentString = normalizedString.replace(/[\u0300-\u036f]/g, "");
-    // Remove any extra punctuation
-    const finalString = noAccentString.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>{}[\]\\/]/gi, "");
+    /*
+    Replace accented characters with their normal counterparts
+    Also remove any whitespace or punctuation
+    */
+    const sanitizedString = normalizedString
+        .replace(/[\u0300-\u036f\d`~!@#$%^&*()_|+\-=?;:'",.<>{}[\]\\/]/gi, "")
+        .trim();
 
-    return finalString;
+    return sanitizedString;
 }
