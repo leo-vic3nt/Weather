@@ -34,3 +34,14 @@ export function getFormattedTime(): string {
 
     return `${hours}:${minutes}`;
 }
+
+export function sanitizeInputString(string: string): string {
+    // Normalize the Unicode format
+    const normalizedString = string.normalize("NFD");
+    // Replace accented characters with their normal counterparts
+    const noAccentString = normalizedString.replace(/[\u0300-\u036f]/g, "");
+    // Remove any extra punctuation
+    const finalString = noAccentString.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>{}[\]\\/]/gi, "");
+
+    return finalString;
+}

@@ -24,21 +24,39 @@
                         id="location-input"
                         required
                         minlength="2"
-                        maxlength="20"
-                        pattern="^(?=.{2,22}$)[A-Za-z]+(?:\s[A-Za-z]+)*$"
+                        maxlength="25"
+                        pattern="^[a-zA-Z\s]+$"
                         title="At least 2 characters, no numbers or punctuation"
                         class="search__input" />
                     <button class="search__button">
                         <svg
-                            class="search__icon"
                             xmlns="http://www.w3.org/2000/svg"
                             x="0px"
                             y="0px"
-                            width="25"
-                            height="25"
-                            viewBox="0 0 50 50">
-                            <path
-                                d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z"></path>
+                            width="40"
+                            height="40"
+                            viewBox="0,0,256,256"
+                            style="fill: #000000">
+                            <g
+                                fill="#929292"
+                                fill-rule="nonzero"
+                                stroke="none"
+                                stroke-width="1"
+                                stroke-linecap="butt"
+                                stroke-linejoin="miter"
+                                stroke-miterlimit="10"
+                                stroke-dasharray=""
+                                stroke-dashoffset="0"
+                                font-family="none"
+                                font-weight="none"
+                                font-size="none"
+                                text-anchor="none"
+                                style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M21.5,8c-7.443,0 -13.5,6.057 -13.5,13.5c0,7.443 6.057,13.5 13.5,13.5c3.28907,0 6.3057,-1.18398 8.65039,-3.14648c0.2849,0.2849 9.56152,9.56249 9.79297,9.79492c0.47,0.47 1.23313,0.47 1.70313,0c0.47,-0.47 0.47,-1.23313 0,-1.70313c-0.23145,-0.23243 -9.50807,-9.51002 -9.79297,-9.79492c1.9625,-2.34469 3.14648,-5.36133 3.14648,-8.65039c0,-7.443 -6.057,-13.5 -13.5,-13.5zM21.5,9c6.892,0 12.5,5.608 12.5,12.5c0,6.892 -5.608,12.5 -12.5,12.5c-6.892,0 -12.5,-5.608 -12.5,-12.5c0,-6.892 5.608,-12.5 12.5,-12.5z"></path>
+                                </g>
+                            </g>
                         </svg>
                     </button>
                 </form>

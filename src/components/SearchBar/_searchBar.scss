@@ -2,25 +2,46 @@
     width: fit-content;
     display: flex;
     transition: all ease-in-out 0.5s;
+    border-radius: 30px;
 
-    &:focus-within {
+    &:focus-within,
+    &:hover {
         box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.2);
     }
 
     &__input {
+        width: 300px;
         background-color: var(--neutral-white);
         border: none;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        padding: 1em;
 
         &:focus {
             outline: none;
         }
+
+        &::-webkit-input-placeholder {
+            font-weight: 200;
+            font-size: var(--fs-md);
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px var(--neutral-white) inset;
+        }
     }
 
     &__button {
+        cursor: pointer;
         display: flex;
         align-self: center;
-        padding: 0;
+        padding: var(--space-xs) var(--space-sm);
         border: none;
         background-color: var(--neutral-white);
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
     }
 }
