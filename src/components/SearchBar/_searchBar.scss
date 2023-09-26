@@ -3,10 +3,15 @@
     flex-direction: column;
     width: 500px;
 
-    &__error-msg {
-        text-align: center;
-        font-weight: var(--fw-semi-bold);
-        color: red;
+    &__error {
+        visibility: hidden;
+
+        &--active {
+            visibility: visible;
+            text-align: center;
+            font-weight: var(--fw-semi-bold);
+            color: red;
+        }
     }
 
     &__input-container {
