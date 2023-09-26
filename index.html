@@ -17,48 +17,51 @@
         <div id="app">
             <div id="heroSection">
                 <form class="search">
-                    <input
-                        required
-                        placeholder="Location..."
-                        type="text"
-                        name="location"
-                        id="location-input"
-                        minlength="2"
-                        maxlength="25"
-                        pattern="[^0-9]*"
-                        title="No numbers allowed"
-                        class="search__input" />
-                    <button class="search__button">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0px"
-                            y="0px"
-                            width="40"
-                            height="40"
-                            viewBox="0,0,256,256"
-                            style="fill: #000000">
-                            <g
-                                fill="#929292"
-                                fill-rule="nonzero"
-                                stroke="none"
-                                stroke-width="1"
-                                stroke-linecap="butt"
-                                stroke-linejoin="miter"
-                                stroke-miterlimit="10"
-                                stroke-dasharray=""
-                                stroke-dashoffset="0"
-                                font-family="none"
-                                font-weight="none"
-                                font-size="none"
-                                text-anchor="none"
-                                style="mix-blend-mode: normal">
-                                <g transform="scale(5.12,5.12)">
-                                    <path
-                                        d="M21.5,8c-7.443,0 -13.5,6.057 -13.5,13.5c0,7.443 6.057,13.5 13.5,13.5c3.28907,0 6.3057,-1.18398 8.65039,-3.14648c0.2849,0.2849 9.56152,9.56249 9.79297,9.79492c0.47,0.47 1.23313,0.47 1.70313,0c0.47,-0.47 0.47,-1.23313 0,-1.70313c-0.23145,-0.23243 -9.50807,-9.51002 -9.79297,-9.79492c1.9625,-2.34469 3.14648,-5.36133 3.14648,-8.65039c0,-7.443 -6.057,-13.5 -13.5,-13.5zM21.5,9c6.892,0 12.5,5.608 12.5,12.5c0,6.892 -5.608,12.5 -12.5,12.5c-6.892,0 -12.5,-5.608 -12.5,-12.5c0,-6.892 5.608,-12.5 12.5,-12.5z"></path>
+                    <div class="search__error-msg">Error Placeholder</div>
+                    <div class="search__input-container">
+                        <input
+                            required
+                            placeholder="Location..."
+                            type="text"
+                            name="location"
+                            id="location-input"
+                            minlength="2"
+                            maxlength="25"
+                            pattern="[^0-9]*"
+                            title="No numbers allowed"
+                            class="search__input" />
+                        <button class="search__button">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                x="0px"
+                                y="0px"
+                                width="40"
+                                height="40"
+                                viewBox="0,0,256,256"
+                                style="fill: #000000">
+                                <g
+                                    fill="#929292"
+                                    fill-rule="nonzero"
+                                    stroke="none"
+                                    stroke-width="1"
+                                    stroke-linecap="butt"
+                                    stroke-linejoin="miter"
+                                    stroke-miterlimit="10"
+                                    stroke-dasharray=""
+                                    stroke-dashoffset="0"
+                                    font-family="none"
+                                    font-weight="none"
+                                    font-size="none"
+                                    text-anchor="none"
+                                    style="mix-blend-mode: normal">
+                                    <g transform="scale(5.12,5.12)">
+                                        <path
+                                            d="M21.5,8c-7.443,0 -13.5,6.057 -13.5,13.5c0,7.443 6.057,13.5 13.5,13.5c3.28907,0 6.3057,-1.18398 8.65039,-3.14648c0.2849,0.2849 9.56152,9.56249 9.79297,9.79492c0.47,0.47 1.23313,0.47 1.70313,0c0.47,-0.47 0.47,-1.23313 0,-1.70313c-0.23145,-0.23243 -9.50807,-9.51002 -9.79297,-9.79492c1.9625,-2.34469 3.14648,-5.36133 3.14648,-8.65039c0,-7.443 -6.057,-13.5 -13.5,-13.5zM21.5,9c6.892,0 12.5,5.608 12.5,12.5c0,6.892 -5.608,12.5 -12.5,12.5c-6.892,0 -12.5,-5.608 -12.5,-12.5c0,-6.892 5.608,-12.5 12.5,-12.5z"></path>
+                                    </g>
                                 </g>
-                            </g>
-                        </svg>
-                    </button>
+                            </svg>
+                        </button>
+                    </div>
                 </form>
 
                 <div class="date">
