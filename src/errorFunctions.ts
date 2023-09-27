@@ -18,7 +18,7 @@ export class GenericError extends Error {
     }
 }
 
-export class GeolocationError extends Error {
+export class GeolocationRequestError extends Error {
     constructor(geolocationError: GeolocationPositionError) {
         super(`Geolocation error: ${geolocationError.message}`);
     }

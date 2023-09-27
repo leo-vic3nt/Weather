@@ -1,5 +1,5 @@
 import { WeatherData, ApiError } from "./weatherApiInterfaces";
-import { ApiInternalError, GenericError, GeolocationError, LocationNotFound } from "./errorFunctions";
+import { ApiInternalError, GenericError, GeolocationRequestError, LocationNotFound } from "./errorFunctions";
 import { requestGeolocation, sleep } from "./helperFunctions";
 
 const KEY = "fdc857fd0eaa40b6a1925541230509";
@@ -51,7 +51,7 @@ export async function getWeatherByGeolocation(): Promise<WeatherData> {
         return await getWeatherData(`${latitude},${longitude}`);
     } catch (err) {
         if (err instanceof GeolocationPositionError) {
-            throw new GeolocationError(err);
+            throw new GeolocationRequestError(err);
         }
         throw err;
     }
