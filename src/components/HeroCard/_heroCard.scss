@@ -1,0 +1,38 @@
+.heroCard {
+    display: flex;
+    flex-direction: column;
+
+    .heroCard__greetings {
+        .heroCard__title {
+            line-height: 1;
+            text-transform: capitalize;
+            font-weight: var(--fw-extra-bold);
+            font-size: var(--fs-xxl);
+        }
+
+        .heroCard__subtitle {
+            font-weight: var(--fw-regular);
+            font-style: italic;
+        }
+    }
+
+    .heroCard__stats {
+        .heroCard__weather-condition {
+            display: flex;
+            align-items: center;
+
+            .heroCard__temperature {
+                font-size: var(--fs-xxxl);
+                font-weight: var(--fw-extra-bold);
+            }
+        }
+
+        .heroCard__secondary-stats{
+
+            & *{
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+}

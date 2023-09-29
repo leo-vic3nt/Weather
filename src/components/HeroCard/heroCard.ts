@@ -1,6 +1,11 @@
 import { WeatherData } from "../../weatherApiInterfaces";
 
-const WEATHER_ICONS: { day: Record<string, string>; night: Record<string, string> } = {
+interface WeatherIconsInterface {
+    day: { [key: string]: string };
+    night: { [key: string]: string };
+}
+
+const WEATHER_ICONS: WeatherIconsInterface = {
     day: {
         Sunny: "/icons/Weather-Icons/day/sunny.png",
         "Partly cloudy": "/icons/Weather-Icons/day/partly-cloudy-day.png",
@@ -103,8 +108,6 @@ const WEATHER_ICONS: { day: Record<string, string>; night: Record<string, string
         "Moderate or heavy snow with thunder": "/icons/Weather-Icons/snowing.png",
     },
 };
-
-// Greetings
 
 function renderGreetings(weatherData: WeatherData) {
     const subtitle = document.querySelector(".heroCard__subtitle") as HTMLHeadingElement;

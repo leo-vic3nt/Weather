@@ -1,6 +1,6 @@
 .search {
     display: flex;
-    width: 500px;
+    width: 340px;
     transition: all ease-in-out 0.5s;
     border-radius: 30px;
 
@@ -9,7 +9,7 @@
         box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.3);
     }
 
-    &__input {
+    .search__input {
         flex: 1;
         background-color: var(--neutral-white);
         border: none;
@@ -34,11 +34,11 @@
         }
     }
 
-    &__button {
+    .search__button {
         cursor: pointer;
         display: flex;
         align-self: center;
-        padding: var(--space-xs) var(--space-md);
+        padding: var(--space-xs) var(--space-sm);
         border: none;
         background-color: var(--neutral-white);
         border-top-right-radius: 30px;

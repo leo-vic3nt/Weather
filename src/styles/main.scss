@@ -1,6 +1,7 @@
 @use "./variables";
 @use "../components/CurrentDate/currentDate";
 @use "../components/SearchBar/searchBar";
+@use "../components/HeroCard/heroCard";
 
 :root {
     font-family: "Inter", sans-serif;
@@ -12,24 +13,28 @@
 }
 
 .container {
+    width: 100%;
     max-width: 1920px;
     margin: 0 auto;
 }
 
 /* Make the div#app take the whole page */
 body {
-    background-color: black;
-    color: #fff;
+    background-color: var(--black-background);
     display: flex;
     flex-direction: column;
+    padding: 10px;
 
     #app {
         flex-grow: 1;
     }
 }
 
-/* Layout */
 #app {
     display: grid;
     grid-template-columns: 1fr auto;
+
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.450);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }

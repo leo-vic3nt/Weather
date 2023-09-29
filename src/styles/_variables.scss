@@ -1,4 +1,6 @@
 :root {
+    --black-background: #333;
+
     --neutral-white: #f4f3f2;
     --undertone-gray: #414141;
 
@@ -13,6 +15,7 @@
     --fs-xxxl: calc(var(--fs-xxl) * var(--text-scale-ratio));
 
     --fw-light: 300;
+    --fw-regular: 400;
     --fw-lil-bold: 500;
     --fw-semi-bold: 600;
     --fw-bold: 700;

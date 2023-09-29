@@ -6,12 +6,12 @@
     flex-direction: column;
     align-items: center;
 
-    &__time {
+    .date__time {
         font-size: var(--fs-lg);
         font-weight: var(--fw-lil-bold);
     }
 
-    &__formatted {
+    .date__formatted {
         font-size: var(--fs-md);
         font-weight: var(--fw-light);
     }
