@@ -16,6 +16,42 @@
     <body>
         <div id="app" class="container">
             <div id="heroSection">
+                <div class="date">
+                    <div class="date__time"></div>
+                    <div class="date__formatted"></div>
+                </div>
+
+                <div class="heroCard">
+                    <div class="heroCard__greetings">
+                        <h4 class="heroCard__subtitle"></h4>
+                        <h2 class="heroCard__title"></h2>
+                    </div>
+
+                    <div class="heroCard__stats">
+                        <div class="heroCard__weather-condition">
+                            <img src="" alt="Weather Condition Icon" class="heroCard__icon" />
+                            <div class="heroCard__temperature"></div>
+                        </div>
+
+                        <div class="heroCard__secondary-stats">
+                            <div class="heroCard__humidity" title="Humidity">
+                                <img src="/icons/Stats/humidity.png" alt="Humidity icon" />
+                            </div>
+                            <div class="heroCard__chance-rain" title="Chance of Rain">
+                                <img src="/icons/Stats/chance-of-rain.png" alt="Umbrella icon" />
+                            </div>
+                            <div class="heroCard__wind-speed" title="Wind Speed">
+                                <img src="/icons/Stats/wind-speed.png" alt="Windsock icon" />
+                            </div>
+                            <div class="heroCard__uv-index" title="Uv Index">
+                                <img src="/icons/Stats/uv-index.png" alt="Parasol icon" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="weatherDataSection">
                 <form class="search">
                     <input
                         required
@@ -60,43 +96,7 @@
                         </svg>
                     </button>
                 </form>
-
-                <div class="date">
-                    <div class="date__time"></div>
-                    <div class="date__formatted"></div>
-                </div>
-
-                <div class="heroCard">
-                    <div class="heroCard__greetings">
-                        <h4 class="heroCard__subtitle"></h4>
-                        <h2 class="heroCard__title"></h2>
-                    </div>
-
-                    <div class="heroCard__stats">
-                        <div class="heroCard__weather-condition">
-                            <img src="" alt="Weather Condition Icon" class="heroCard__icon" />
-                            <div class="heroCard__temperature"></div>
-                        </div>
-
-                        <div class="heroCard__secondary-stats">
-                            <div class="heroCard__humidity" title="Humidity">
-                                <img src="/icons/Stats/humidity.png" alt="Humidity icon" />
-                            </div>
-                            <div class="heroCard__chance-rain" title="Chance of Rain">
-                                <img src="/icons/Stats/chance-of-rain.png" alt="Umbrella icon" />
-                            </div>
-                            <div class="heroCard__wind-speed" title="Wind Speed">
-                                <img src="/icons/Stats/wind-speed.png" alt="Windsock icon" />
-                            </div>
-                            <div class="heroCard__uv-index" title="Uv Index">
-                                <img src="/icons/Stats/uv-index.png" alt="Parasol icon" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-
-            <div id="weatherDataSection"></div>
         </div>
 
         <script type="module" src="/src/main.ts"></script>

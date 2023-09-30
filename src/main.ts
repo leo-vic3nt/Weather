@@ -1,9 +1,9 @@
 import { displayDateTime } from "./components/CurrentDate/currentDate";
 import { renderHeroCard } from "./components/HeroCard/heroCard";
 import { innitLocationSearch } from "./components/SearchBar/searchBar";
-import { getWeatherByIp } from "./weatherApiFunctions";
+import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./weatherApiFunctions";
 
 displayDateTime();
 innitLocationSearch();
 
-getWeatherByIp().then(data => renderHeroCard(data))
+getWeatherData("São Paulo").then((res) => renderHeroCard(res));
