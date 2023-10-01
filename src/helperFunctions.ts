@@ -47,5 +47,3 @@ export function sanitizeInputString(string: string): string {
 
     return sanitizedString;
 }
-
-
