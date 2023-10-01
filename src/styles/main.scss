@@ -32,18 +32,21 @@ body {
 
 #app {
     display: grid;
+
     grid-template-columns: 3fr 1fr;
 
     border-radius: 20px;
     border: 3px solid var(--full-white);
 }
 
-#heroSection{
-    padding: 3em;
+#heroSection {
+    padding: 2em;
 }
 
 #weatherDataSection {
-    padding: 3em;
+    padding: 2em;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
     background-color: var(--full-white);
     display: flex;
     flex-direction: column;

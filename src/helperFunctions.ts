@@ -27,21 +27,11 @@ export function getFormattedTime(): string {
     const currentDate = new Date();
     const hours = currentDate.getHours();
     const minutes = currentDate.getMinutes();
-    const seconds = currentDate.getSeconds();
 
-    if (minutes < 10 && seconds < 10) {
-        return `${hours} : 0${minutes} : 0${seconds}`;
-    }
+    const hoursFormatted = hours < 10 ? `0${hours}` : hours;
+    const minutesFormatted = minutes < 10 ? `0${minutes}` : minutes;
 
-    if (minutes < 10) {
-        return `${hours} : 0${minutes} : ${seconds}`;
-    }
-
-    if (seconds < 10) {
-        return `${hours} : ${minutes} : 0${seconds}`;
-    }
-
-    return `${hours} : ${minutes} : ${seconds}`;
+    return `${hoursFormatted} : ${minutesFormatted}`;
 }
 
 export function sanitizeInputString(string: string): string {
@@ -57,3 +47,5 @@ export function sanitizeInputString(string: string): string {
 
     return sanitizedString;
 }
+
+
