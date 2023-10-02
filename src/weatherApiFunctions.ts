@@ -3,7 +3,7 @@ import { ApiInternalError, GenericError, GeolocationRequestError, LocationNotFou
 import { requestGeolocation, sleep } from "./helperFunctions";
 
 const KEY = "fdc857fd0eaa40b6a1925541230509";
-const API_URL = "http://api.weatherapi.com/v1/forecast.json";
+const API_URL = "https://api.weatherapi.com/v1/forecast.json";
 
 export async function getWeatherData(location: string): Promise<WeatherData> {
     const MAX_TRIES = 3;
