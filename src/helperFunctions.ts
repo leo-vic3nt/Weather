@@ -1,3 +1,6 @@
+import { BACKGROUND_IMGS } from "./imagesMapping";
+import { WeatherData } from "./weatherApiInterfaces";
+
 export function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true });
@@ -46,4 +49,17 @@ export function sanitizeInputString(string: string): string {
         .trim();
 
     return sanitizedString;
+}
+
+export function renderBackgroundImage(weatherData: WeatherData): void {
+    const mainSection = document.getElementById("heroSection") as HTMLDivElement;
+    const isDay = weatherData.current.is_day;
+    const currentCondition = weatherData.current.condition.text;
+    const gradientFilter = "linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))";
+
+    if (isDay) {
+        mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.day[currentCondition]})`;
+    } else {
+        mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.night[currentCondition]})`;
+    }
 }

@@ -2,7 +2,6 @@
 @use "../components/CurrentDate/currentDate";
 @use "../components/SearchBar/searchBar";
 @use "../components/HeroCard/heroCard";
-@use "../components/HeroSection/heroSection";
 
 :root {
     font-family: "Inter", sans-serif;
@@ -30,10 +29,15 @@ body {
 }
 
 #app {
+    color: var(--full-white);
+
     display: flex;
     flex-direction: column;
 }
+
 #heroSection {
     flex: 1;
     padding: 2em;
+    background-size: cover;
+    background-position: center;
 }
