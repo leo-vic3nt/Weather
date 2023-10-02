@@ -2,6 +2,7 @@
 @use "../components/CurrentDate/currentDate";
 @use "../components/SearchBar/searchBar";
 @use "../components/HeroCard/heroCard";
+@use "../components/HeroSection/heroSection";
 
 :root {
     font-family: "Inter", sans-serif;
@@ -20,23 +21,18 @@
 
 /* Make the div#app take the whole page */
 body {
-    background-color: var(--black-background);
     display: flex;
     flex-direction: column;
-    padding: 1em;
 
     #app {
         flex-grow: 1;
     }
 }
 
+/* Layout */
 #app {
     display: grid;
-
     grid-template-columns: 3fr 1fr;
-
-    border-radius: 20px;
-    border: 3px solid var(--full-white);
 }
 
 #heroSection {
@@ -45,8 +41,6 @@ body {
 
 #weatherDataSection {
     padding: 2em;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
     background-color: var(--full-white);
     display: flex;
     flex-direction: column;

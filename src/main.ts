@@ -1,3 +1,4 @@
+import { renderBackgroundImages } from "./components/HeroSection/heroSection";
 import { displayDateTime } from "./components/CurrentDate/currentDate";
 import { renderHeroCard } from "./components/HeroCard/heroCard";
 import { innitLocationSearch } from "./components/SearchBar/searchBar";
@@ -6,4 +7,7 @@ import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./weath
 displayDateTime();
 innitLocationSearch();
 
-getWeatherData("São Paulo").then((res) => renderHeroCard(res));
+getWeatherData("Miami").then((res) => {
+    renderHeroCard(res);
+    renderBackgroundImages(res);
+});
