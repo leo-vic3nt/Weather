@@ -7,7 +7,7 @@ import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./weath
 displayDateTime();
 innitLocationSearch();
 
-getWeatherData("Miami").then((res) => {
+getWeatherData("São paulo").then((res) => {
     renderHeroCard(res);
     renderBackgroundImages(res);
 });

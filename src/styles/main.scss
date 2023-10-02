@@ -29,20 +29,11 @@ body {
     }
 }
 
-/* Layout */
 #app {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-}
-
-#heroSection {
-    padding: 2em;
-}
-
-#weatherDataSection {
-    padding: 2em;
-    background-color: var(--full-white);
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+#heroSection {
+    flex: 1;
+    padding: 2em;
 }

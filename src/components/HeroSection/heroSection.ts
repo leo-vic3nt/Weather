@@ -11,6 +11,6 @@ export function renderBackgroundImages(weatherData: WeatherData): void {
     if (isDay) {
         heroSectionElement.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.day[currentCondition]})`;
     } else {
-        heroSectionElement.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.day[currentCondition]})`;
+        heroSectionElement.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.night[currentCondition]})`;
     }
 }
