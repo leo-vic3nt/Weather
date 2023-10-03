@@ -52,7 +52,7 @@ export function sanitizeInputString(string: string): string {
 }
 
 export function renderBackgroundImage(weatherData: WeatherData): void {
-    const mainSection = document.getElementById("heroSection") as HTMLDivElement;
+    const mainSection = document.querySelector("main") as HTMLElement;
     const isDay = weatherData.current.is_day;
     const currentCondition = weatherData.current.condition.text;
     const gradientFilter = "linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))";

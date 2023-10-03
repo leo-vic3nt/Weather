@@ -14,13 +14,13 @@ function renderGreetings(weatherData: WeatherData) {
 
 function renderStats(weatherData: WeatherData) {
     const conditionIcon = document.querySelector(".heroCard__icon") as HTMLImageElement;
-    const temperature = document.querySelector(".heroCard__temperature") as HTMLDivElement;
-    const conditionText = weatherData.current.condition.text;
+    const temperature = document.querySelector(".heroCard__temperature") as HTMLParagraphElement;
+    const currentConditionText = weatherData.current.condition.text;
 
     if (weatherData.current.is_day) {
-        conditionIcon.src = WEATHER_ICONS.day[conditionText];
+        conditionIcon.src = WEATHER_ICONS.day[currentConditionText];
     } else {
-        conditionIcon.src = WEATHER_ICONS.night[conditionText];
+        conditionIcon.src = WEATHER_ICONS.night[currentConditionText];
     }
 
     temperature.textContent = `${weatherData.current.temp_c}ºC`;

@@ -29,15 +29,15 @@ body {
 }
 
 #app {
-    color: var(--full-white);
-
     display: flex;
     flex-direction: column;
+
+    color: var(--full-white);
 }
 
-#heroSection {
+main {
     flex: 1;
-    padding: 2em;
+    padding: 1.5em 3em;
     background-size: cover;
     background-position: center;
 }
