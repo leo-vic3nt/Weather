@@ -12,8 +12,8 @@ function renderGreetings(weatherData: WeatherData) {
     title.textContent = currentCondition;
 }
 
-function renderStats(weatherData: WeatherData) {
-    const conditionIcon = document.querySelector(".heroCard__icon") as HTMLImageElement;
+function renderMainStats(weatherData: WeatherData) {
+    const conditionIcon = document.querySelector(".heroCard__main-icon") as HTMLImageElement;
     const temperature = document.querySelector(".heroCard__temperature") as HTMLParagraphElement;
     const currentConditionText = weatherData.current.condition.text;
 
@@ -27,30 +27,30 @@ function renderStats(weatherData: WeatherData) {
 }
 
 function renderSecondaryStats(weatherData: WeatherData) {
-    const humidity = document.querySelector(".heroCard__humidity") as HTMLDivElement;
-    const chanceOfRain = document.querySelector(".heroCard__chance-rain") as HTMLDivElement;
-    const windSpeed = document.querySelector(".heroCard__wind-speed") as HTMLDivElement;
-    const uvIndex = document.querySelector(".heroCard__uv-index") as HTMLDivElement;
+    const humidityIcon = document.querySelector(".heroCard__humidity-icon") as HTMLImageElement;
+    const humidityText = document.querySelector(".heroCard__humidity-text") as HTMLParagraphElement;
+    humidityIcon.src = "/icons/Stats/humidity.png";
+    humidityText.textContent = `${weatherData.current.humidity}`;
 
-    const humidityText = document.createElement("p");
-    humidityText.textContent = `${weatherData.current.humidity}%`;
-    humidity.appendChild(humidityText);
+    const chanceOfRainIcon = document.querySelector(".heroCard__chance-of-rain-icon") as HTMLImageElement;
+    const chanceOfRainText = document.querySelector(".heroCard__chance-of-rain-text") as HTMLParagraphElement;
+    chanceOfRainIcon.src = "/icons/Stats/chance-of-rain.png";
+    // foracastday[0] means today
+    chanceOfRainText.textContent = `${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}`;
 
-    const chanceOfRainText = document.createElement("p");
-    chanceOfRainText.textContent = `${weatherData.forecast.forecastday[0].day.daily_will_it_rain}%`;
-    chanceOfRain.appendChild(chanceOfRainText);
+    const windSpeedIcon = document.querySelector(".heroCard__wind-speed-icon") as HTMLImageElement;
+    const windSpeedText = document.querySelector(".heroCard__wind-speed-text") as HTMLParagraphElement;
+    windSpeedIcon.src = "/icons/Stats/wind-speed.png";
+    windSpeedText.textContent = `${weatherData.current.wind_kph}`;
 
-    const windSpeedText = document.createElement("p");
-    windSpeedText.textContent = `${weatherData.current.wind_kph} km/h`;
-    windSpeed.appendChild(windSpeedText);
-
-    const uvIndexText = document.createElement("p");
+    const uvIndexIcon = document.querySelector(".heroCard__uv-index-icon") as HTMLImageElement;
+    const uvIndexText = document.querySelector(".heroCard__uv-index-text") as HTMLParagraphElement;
+    uvIndexIcon.src = "/icons/Stats/uv-index.png";
     uvIndexText.textContent = `${weatherData.current.uv}`;
-    uvIndex.appendChild(uvIndexText);
 }
 
 export function renderHeroCard(weatherData: WeatherData) {
     renderGreetings(weatherData);
-    renderStats(weatherData);
+    renderMainStats(weatherData);
     renderSecondaryStats(weatherData);
 }

@@ -20,7 +20,6 @@
                     <p class="date__time"></p>
                     <p class="date__formatted"></p>
                 </div>
-
                 <div class="heroCard">
                     <div class="heroCard__greetings">
                         <h4 class="heroCard__subtitle"></h4>
@@ -28,28 +27,46 @@
                     </div>
 
                     <div class="heroCard__stats">
-                        <div class="heroCard__weather-condition">
-                            <img src="" alt="Weather Condition Icon" class="heroCard__icon" />
+                        <div class="heroCard__main-stats">
+                            <img src alt="Weather Condition Icon" class="heroCard__main-icon" />
                             <p class="heroCard__temperature"></p>
                         </div>
 
                         <div class="heroCard__secondary-stats">
                             <div class="heroCard__humidity" title="Humidity">
-                                <img src="/icons/Stats/humidity.png" alt="Humidity icon" />
+                                <img
+                                    class="heroCard__humidity-icon"
+                                    src="/icons/Stats/humidity.png"
+                                    alt="Humidity icon" />
+                                <p class="heroCard__humidity-text"></p>
                             </div>
-                            <div class="heroCard__chance-rain" title="Chance of Rain">
-                                <img src="/icons/Stats/chance-of-rain.png" alt="Umbrella icon" />
+
+                            <div class="heroCard__chance-of-rain" title="Chance of Rain">
+                                <img
+                                    class="heroCard__chance-of-rain-icon"
+                                    src="/icons/Stats/chance-of-rain.png"
+                                    alt="Umbrella icon" />
+                                <p class="heroCard__chance-of-rain-text"></p>
                             </div>
+
                             <div class="heroCard__wind-speed" title="Wind Speed">
-                                <img src="/icons/Stats/wind-speed.png" alt="Windsock icon" />
+                                <img
+                                    class="heroCard__wind-speed-icon"
+                                    src="/icons/Stats/wind-speed.png"
+                                    alt="Windsock icon" />
+                                <p class="heroCard__wind-speed-text"></p>
                             </div>
+
                             <div class="heroCard__uv-index" title="Uv Index">
-                                <img src="/icons/Stats/uv-index.png" alt="Parasol icon" />
+                                <img
+                                    class="heroCard__uv-index-icon"
+                                    src="/icons/Stats/uv-index.png"
+                                    alt="Parasol icon" />
+                                <p class="heroCard__uv-index-text"></p>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <form class="search">
                     <input
                         required
@@ -79,7 +96,7 @@
                                 stroke-linecap="butt"
                                 stroke-linejoin="miter"
                                 stroke-miterlimit="10"
-                                stroke-dasharray=""
+                                stroke-dasharray
                                 stroke-dashoffset="0"
                                 font-family="none"
                                 font-weight="none"
@@ -96,7 +113,6 @@
                 </form>
             </main>
         </div>
-
         <script type="module" src="/src/main.ts"></script>
     </body>
 </html>

@@ -55,7 +55,12 @@ export function renderBackgroundImage(weatherData: WeatherData): void {
     const mainSection = document.querySelector("main") as HTMLElement;
     const isDay = weatherData.current.is_day;
     const currentCondition = weatherData.current.condition.text;
-    const gradientFilter = "linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))";
+    /*
+    greadientFilter creates a black tint over the background image
+    for better readability
+    */
+   const gradientFilter = "linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))";
+
 
     if (isDay) {
         mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.day[currentCondition]})`;
