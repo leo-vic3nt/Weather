@@ -43,3 +43,5 @@ export function renderBackgroundImage(weatherData: WeatherData): void {
         mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.night[currentCondition]})`;
     }
 }
+
+

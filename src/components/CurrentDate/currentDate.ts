@@ -3,7 +3,7 @@ import { WeatherData } from "../../weatherApiInterfaces";
 const dateElement = document.querySelector(".date__formatted") as HTMLDivElement;
 const timeElement = document.querySelector(".date__time") as HTMLDivElement;
 
-export function getDateFromTargetLocation(apiResponse: WeatherData): string {
+function getDateFromTargetLocation(apiResponse: WeatherData): string {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
@@ -30,15 +30,19 @@ function getTimeFromTargetLocation(apiResponse: WeatherData): string {
     return `${hoursFormatted} : ${minutesFormatted}`;
 }
 
-function renderDate(apiResponse: WeatherData): void {
-    dateElement.textContent = getDateFromTargetLocation(apiResponse);
+
+function renderDate(date: string): void {
+    dateElement.textContent = date;
 }
 
-function renderTime(apiResponse: WeatherData): void {
-    timeElement.textContent = getTimeFromTargetLocation(apiResponse);
+function renderTime(time: string): void {
+    timeElement.textContent = time;
 }
 
 export function displayDateTime(apiResponse: WeatherData): void {
-    renderDate(apiResponse);
-    renderTime(apiResponse);
+    const formattedDate = getDateFromTargetLocation(apiResponse);
+    const formattedTime = getTimeFromTargetLocation(apiResponse);
+
+    renderDate(formattedDate);
+    renderTime(formattedTime);
 }
