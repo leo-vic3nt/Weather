@@ -4,6 +4,7 @@ interface Location {
     country: string;
     tz_id: string;
     localtime: string;
+    localtime_epoch: number;
 }
 
 interface Current {

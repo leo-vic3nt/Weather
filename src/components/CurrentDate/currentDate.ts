@@ -1,18 +1,17 @@
-import { getFormattedDate, getFormattedTime } from "../../helperFunctions";
+import { getDateFromTargetLocation, getTimeFromTargetLocation } from "../../helperFunctions";
+import { WeatherData } from "../../weatherApiInterfaces";
 const dateElement = document.querySelector(".date__formatted") as HTMLDivElement;
 const timeElement = document.querySelector(".date__time") as HTMLDivElement;
 
-function renderDate(): void {
-    dateElement.textContent = getFormattedDate();
+function renderDate(apiResponse: WeatherData): void {
+    dateElement.textContent = getDateFromTargetLocation(apiResponse);
 }
 
-function renderTime(): void {
-    timeElement.textContent = getFormattedTime();
+function renderTime(apiResponse: WeatherData): void {
+    timeElement.textContent = getTimeFromTargetLocation(apiResponse);
 }
 
-export function displayDateTime(): void {
-    renderDate();
-    renderTime();
-
-    setInterval(renderTime, 1000);
+export function displayDateTime(apiResponse: WeatherData): void {
+    renderDate(apiResponse);
+    renderTime(apiResponse);
 }

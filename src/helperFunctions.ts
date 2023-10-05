@@ -13,28 +13,32 @@ export function sleep(delay: number): Promise<void> {
     });
 }
 
-export function getFormattedDate(): string {
+export function getDateFromTargetLocation(apiResponse: WeatherData): string {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
 
-    const currentDate = new Date();
-    const day = days[currentDate.getDay()];
+    // Api response localtime property format: "YYYY-MM-DD HH:MM"
+    const dateResponse = apiResponse.location.localtime;
+    const currentDate = new Date(dateResponse);
     const dayNr = currentDate.getDate();
+    const day = days[currentDate.getDay()];
     const month = months[currentDate.getMonth()];
     const year = currentDate.getFullYear();
 
     return `${day}, ${dayNr} ${month} ${year}`;
 }
 
-export function getFormattedTime(): string {
-    const currentDate = new Date();
-    const hours = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
+export function getTimeFromTargetLocation(apiResponse: WeatherData): string {
+    
 
-    const hoursFormatted = hours < 10 ? `0${hours}` : hours;
-    const minutesFormatted = minutes < 10 ? `0${minutes}` : minutes;
+    // const currentDate = new Date();
+    // const hours = currentDate.getHours();
+    // const minutes = currentDate.getMinutes();
 
-    return `${hoursFormatted} : ${minutesFormatted}`;
+    // const hoursFormatted = hours < 10 ? `0${hours}` : hours;
+    // const minutesFormatted = minutes < 10 ? `0${minutes}` : minutes;
+
+    // return `${hoursFormatted} : ${minutesFormatted}`;
 }
 
 export function sanitizeInputString(string: string): string {
@@ -59,8 +63,7 @@ export function renderBackgroundImage(weatherData: WeatherData): void {
     greadientFilter creates a black tint over the background image
     for better readability
     */
-   const gradientFilter = "linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))";
-
+    const gradientFilter = "linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))";
 
     if (isDay) {
         mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.day[currentCondition]})`;
