@@ -1,8 +1,5 @@
 import { WeatherData } from "../../weatherApiInterfaces";
 
-const dateElement = document.querySelector(".date__formatted") as HTMLDivElement;
-const timeElement = document.querySelector(".date__time") as HTMLDivElement;
-
 function getLocalTimeDateObj(apiResponse: WeatherData): Date {
     // Api response localtime property format: "YYYY-MM-DD HH:MM"
     const dateResponse = apiResponse.location.localtime;
@@ -32,10 +29,12 @@ function formatTime(date: Date): string {
 }
 
 function renderDate(date: string): void {
+    const dateElement = document.querySelector(".date__formatted") as HTMLDivElement;
     dateElement.textContent = date;
 }
 
 function renderTime(time: string): void {
+    const timeElement = document.querySelector(".date__time") as HTMLDivElement;
     timeElement.textContent = time;
 }
 
