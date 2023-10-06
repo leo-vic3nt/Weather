@@ -9,8 +9,8 @@ interface WeatherIconsInterface {
 }
 
 interface BackgroundImagesInterface {
-    sunrise: { [key: string]: string };
-    sunset: { [key: string]: string };
+    sunrise: string;
+    sunset: string;
     day: { [key: string]: string };
     night: { [key: string]: string };
 }
@@ -120,15 +120,9 @@ export const WEATHER_ICONS: WeatherIconsInterface = {
 };
 
 export const BACKGROUND_IMGS: BackgroundImagesInterface = {
-    sunrise: {
-        clear: "/images/HeroBackgrounds/sunrise.jpg",
-        raining: "/images/HeroBackgrounds/raining-day.png",
-    },
+    sunrise: "/images/HeroBackgrounds/sunrise.jpg",
 
-    sunset: {
-        clear: "/images/HeroBackgrounds/sunset.png",
-        raining: "/images/HeroBackgrounds/sunset-rain.png",
-    },
+    sunset: "/images/HeroBackgrounds/sunset.png",
 
     day: {
         Sunny: "/images/HeroBackgrounds/clear-day.png",

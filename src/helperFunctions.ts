@@ -27,15 +27,28 @@ export function sanitizeInputString(string: string): string {
     return sanitizedString;
 }
 
-export function renderBackgroundImage(weatherData: WeatherData): void {
+export function renderBackgroundImage(apiResponse: WeatherData): void {
     const mainSection = document.querySelector("main") as HTMLElement;
-    const isDay = weatherData.current.is_day;
-    const currentCondition = weatherData.current.condition.text;
-    /*
-    greadientFilter creates a black tint over the background image
-    for better readability
-    */
+    const isDay = apiResponse.current.is_day;
+    const currentCondition = apiResponse.current.condition.text;
+    // greadientFilter creates a black tint over the background image for better readability
     const gradientFilter = "linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))";
+
+    // apiResponse localtime format "YYYY-MM-DD HH:MM"
+    const currentTimeHours = Number(apiResponse.location.localtime.split(" ")[1].split(":")[0]);
+    // Adding 12 to convert it to 24 hours format to match currentTime format
+    const sunriseTime = Number(apiResponse.forecast.forecastday[0].astro.sunrise.split(":")[0]);
+    const sunsetTime = Number(apiResponse.forecast.forecastday[0].astro.sunset.split(":")[0]) + 12;
+
+    // Checking equality for the same hour
+    if (currentTimeHours === sunriseTime) {
+        mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.sunrise})`;
+        return;
+    }
+    if (currentTimeHours === sunsetTime) {
+        mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.sunset})`;
+        return;
+    }
 
     if (isDay) {
         mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.day[currentCondition]})`;
@@ -43,5 +56,3 @@ export function renderBackgroundImage(weatherData: WeatherData): void {
         mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.night[currentCondition]})`;
     }
 }
-
-

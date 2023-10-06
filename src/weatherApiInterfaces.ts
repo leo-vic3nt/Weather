@@ -54,10 +54,16 @@ interface Hour {
     gust_kph: number;
 }
 
+interface Astro {
+    sunrise: string;
+    sunset: string;
+}
+
 interface Forecastday {
     date: string;
     day: Day;
     hour: Hour[];
+    astro: Astro;
 }
 
 interface Forecast {
