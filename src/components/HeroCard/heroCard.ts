@@ -30,18 +30,18 @@ function renderSecondaryStats(weatherData: WeatherData) {
     const humidityIcon = document.querySelector(".heroCard__humidity-icon") as HTMLImageElement;
     const humidityText = document.querySelector(".heroCard__humidity-text") as HTMLParagraphElement;
     humidityIcon.src = "/icons/Stats/humidity.png";
-    humidityText.textContent = `${weatherData.current.humidity}`;
+    humidityText.textContent = `${weatherData.current.humidity}%`;
 
     const chanceOfRainIcon = document.querySelector(".heroCard__chance-of-rain-icon") as HTMLImageElement;
     const chanceOfRainText = document.querySelector(".heroCard__chance-of-rain-text") as HTMLParagraphElement;
     chanceOfRainIcon.src = "/icons/Stats/chance-of-rain.png";
     // foracastday[0] means today
-    chanceOfRainText.textContent = `${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}`;
+    chanceOfRainText.textContent = `${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}%`;
 
     const windSpeedIcon = document.querySelector(".heroCard__wind-speed-icon") as HTMLImageElement;
     const windSpeedText = document.querySelector(".heroCard__wind-speed-text") as HTMLParagraphElement;
     windSpeedIcon.src = "/icons/Stats/wind-speed.png";
-    windSpeedText.textContent = `${weatherData.current.wind_kph}`;
+    windSpeedText.textContent = `${weatherData.current.wind_kph.toFixed(0)}  km/h`;
 
     const uvIndexIcon = document.querySelector(".heroCard__uv-index-icon") as HTMLImageElement;
     const uvIndexText = document.querySelector(".heroCard__uv-index-text") as HTMLParagraphElement;
