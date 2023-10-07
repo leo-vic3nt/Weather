@@ -36,7 +36,12 @@
 
     .hero-card__secondary-stats {
         display: flex;
-        align-items: center;
+        gap: 2em;
+
+        .hero-card__condition-icon {
+            height: auto;
+            width: 200px;
+        }
 
         .stats-container {
             img {

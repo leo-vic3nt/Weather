@@ -19,7 +19,7 @@ function renderMainStats(weatherData: WeatherData) {
 }
 
 function renderSecondaryStats(weatherData: WeatherData) {
-    const conditionIcon = document.querySelector(".hero-card__main-icon") as HTMLImageElement;
+    const conditionIcon = document.querySelector(".hero-card__condition-icon") as HTMLImageElement;
     const currentConditionText = weatherData.current.condition.text;
 
     if (weatherData.current.is_day) {
