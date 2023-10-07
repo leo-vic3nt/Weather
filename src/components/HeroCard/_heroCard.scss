@@ -16,23 +16,18 @@
         }
     }
 
-    .hero-card__stats {
-        .hero-card__main-stats {
-            display: flex;
-            align-items: center;
+    .hero-card__main-stats {
+        display: flex;
+        align-items: center;
 
-            .hero-card__temperature {
-                font-size: var(--fs-xxxl);
-                font-weight: var(--fw-extra-bold);
-            }
+        .hero-card__temperature {
+            font-size: var(--fs-xxxl);
+            font-weight: var(--fw-extra-bold);
         }
+    }
 
-        .hero-card__secondary-stats{
-
-            & *{
-                display: flex;
-                align-items: center;
-            }
-        }
+    .hero-card__secondary-stats {
+        display: flex;
+        align-items: center;
     }
 }

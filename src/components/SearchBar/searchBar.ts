@@ -12,7 +12,6 @@ function checkErrorPatterMissmatch() {
         : locationInput.setCustomValidity("");
 }
 
-// TODO : Handle the weatherData object that will be return from the form
 function handleFormSubmit(submitEvent: SubmitEvent): void {
     submitEvent.preventDefault();
     const sanitizedString = sanitizeInputString(locationInput.value);
