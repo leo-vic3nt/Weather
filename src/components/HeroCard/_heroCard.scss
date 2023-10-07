@@ -25,11 +25,30 @@
             display: flex;
             align-items: center;
             font-size: 70px;
-            font-weight: var(--fw-semi-bold);
+            font-weight: var(--fw-extra-bold);
 
             .hero-card__temperature-icon {
                 height: auto;
                 width: 50px;
+            }
+        }
+
+        .hero-card__min-max-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2em;
+
+            .hero-card__max-temperature,
+            .hero-card__min-temperature {
+                display: flex;
+                align-items: center;
+                font-size: var(--fs-md);
+                font-weight: var(--fw-light);
+            }
+
+            img {
+                height: auto;
+                width: 30px;
             }
         }
     }

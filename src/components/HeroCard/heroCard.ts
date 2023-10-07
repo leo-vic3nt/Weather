@@ -12,10 +12,15 @@ function renderGreetings(weatherData: WeatherData) {
     title.textContent = currentCondition;
 }
 
-function renderMainStats(weatherData: WeatherData) {
+function renderTemperature(weatherData: WeatherData) {
     const temperature = document.querySelector(".hero-card__temperature-value") as HTMLParagraphElement;
-
     temperature.insertAdjacentText("afterbegin", `${weatherData.current.temp_c}`);
+
+    const maxTemperature = document.querySelector(".hero-card__max-temperature") as HTMLParagraphElement;
+    maxTemperature.insertAdjacentText("beforeend", `${weatherData.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}`);
+
+    const minTemperature = document.querySelector(".hero-card__min-temperature") as HTMLParagraphElement;
+    minTemperature.insertAdjacentText("beforeend", `${weatherData.forecast.forecastday[0].day.mintemp_c.toFixed(0)}`);
 }
 
 function renderSecondaryStats(weatherData: WeatherData) {
@@ -44,6 +49,6 @@ function renderSecondaryStats(weatherData: WeatherData) {
 
 export function renderHeroCard(weatherData: WeatherData) {
     renderGreetings(weatherData);
-    renderMainStats(weatherData);
+    renderTemperature(weatherData);
     renderSecondaryStats(weatherData);
 }
