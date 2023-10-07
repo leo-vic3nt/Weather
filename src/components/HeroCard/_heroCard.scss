@@ -3,6 +3,8 @@
     flex-direction: column;
 
     .hero-card__greetings {
+        padding-left: 20px;
+
         .hero-card__subtitle {
             padding-left: 3px;
             font-weight: var(--fw-regular);
@@ -20,6 +22,7 @@
     .hero-card__temperature {
         display: flex;
         align-items: center;
+        padding-left: 20px;
 
         .hero-card__temperature-value {
             display: flex;
@@ -36,7 +39,8 @@
         .hero-card__min-max-container {
             display: flex;
             flex-direction: column;
-            gap: 2em;
+            padding-left: 1em;
+            gap: 5px;
 
             .hero-card__max-temperature,
             .hero-card__min-temperature {
@@ -52,7 +56,6 @@
 
             .hero-card__min-temperature {
                 color: #ccccff;
-
             }
 
             img {
@@ -64,17 +67,21 @@
 
     .hero-card__secondary-stats {
         display: flex;
-        gap: 2em;
+        gap: 1em;
 
         .hero-card__condition-icon {
             height: auto;
-            width: 200px;
+            width: 195px;
         }
 
         .stats-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
             img {
                 height: auto;
-                width: 50px;
+                width: 45px;
             }
 
             .hero-card__humidity,
@@ -83,8 +90,8 @@
             .hero-card__uv-index {
                 display: flex;
                 align-items: center;
-                gap: 0.25em;
-                padding-top: 1em;
+                gap: 5px;
+
                 font-size: var(--fs-md);
                 font-weight: var(--fw-lil-bold);
             }
