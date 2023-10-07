@@ -7,7 +7,7 @@ import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./weath
 
 innitLocationSearch();
 
-getWeatherData("Fortaleza").then((res) => {
+getWeatherData("Iguatu").then((res) => {
     renderHeroCard(res);
     renderBackgroundImage(res);
     displayDateTime(res);

@@ -46,6 +46,15 @@
                 font-weight: var(--fw-light);
             }
 
+            .hero-card__max-temperature {
+                color: #ffcccc;
+            }
+
+            .hero-card__min-temperature {
+                color: #ccccff;
+
+            }
+
             img {
                 height: auto;
                 width: 30px;

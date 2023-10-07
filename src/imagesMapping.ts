@@ -177,8 +177,8 @@ export const BACKGROUND_IMGS: BackgroundImagesInterface = {
 
     night: {
         Clear: "/images/HeroBackgrounds/clear-night.jpg",
-        "Partly cloudy": "/images/HeroBackgrounds/cloudy-night.svg",
-        Cloudy: "/images/HeroBackgrounds/cloudy-night.svg",
+        "Partly cloudy": "/images/HeroBackgrounds/cloudy-night.png",
+        Cloudy: "/images/HeroBackgrounds/cloudy-night.png",
         Overcast: "/images/HeroBackgrounds/overcast.svg",
         Mist: "/images/HeroBackgrounds/mist-fog-night.png",
         "Patchy rain possible": "/images/HeroBackgrounds/heavy-rain.jpg",
