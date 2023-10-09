@@ -56,3 +56,15 @@ export function renderBackgroundImage(apiResponse: WeatherData): void {
         mainSection.style.backgroundImage = `${gradientFilter},url(${BACKGROUND_IMGS.night[currentCondition]})`;
     }
 }
+
+export function toggleLoading() {
+    const loading = document.getElementById("loading") as HTMLDivElement;
+    const styles = getComputedStyle(loading);
+    const display = styles.getPropertyValue("display");
+
+    if (display === "flex") {
+        loading.style.display = "none";
+    } else {
+        loading.style.display = "flex";
+    }
+}
