@@ -24,11 +24,14 @@
         align-items: center;
         padding-left: 20px;
 
-        .hero-card__temperature-value {
+        .hero-card__temperature-value-container {
             display: flex;
             align-items: center;
-            font-size: 70px;
-            font-weight: var(--fw-extra-bold);
+
+            .hero-card__temperature-value {
+                font-size: 70px;
+                font-weight: var(--fw-extra-bold);
+            }
 
             .hero-card__temperature-icon {
                 height: auto;
@@ -39,14 +42,14 @@
         .hero-card__min-max-container {
             display: flex;
             flex-direction: column;
-            padding-left: 1em;
-            gap: 5px;
 
-            .hero-card__max-temperature,
-            .hero-card__min-temperature {
+            padding-left: 0.5em;
+
+            .hero-card__max-temperature-container,
+            .hero-card__min-temperature-container {
                 display: flex;
                 align-items: center;
-                font-size: var(--fs-md);
+                font-size: var(--fs-lg);
                 font-weight: var(--fw-light);
             }
 

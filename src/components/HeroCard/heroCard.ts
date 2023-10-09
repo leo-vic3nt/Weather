@@ -14,13 +14,13 @@ function renderGreetings(weatherData: WeatherData) {
 
 function renderTemperature(weatherData: WeatherData) {
     const temperature = document.querySelector(".hero-card__temperature-value") as HTMLParagraphElement;
-    temperature.insertAdjacentText("afterbegin", `${weatherData.current.temp_c}`);
+    temperature.textContent = `${weatherData.current.temp_c}`;
 
     const maxTemperature = document.querySelector(".hero-card__max-temperature") as HTMLParagraphElement;
-    maxTemperature.insertAdjacentText("beforeend", `${weatherData.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}`);
+    maxTemperature.textContent = `${weatherData.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}º`;
 
     const minTemperature = document.querySelector(".hero-card__min-temperature") as HTMLParagraphElement;
-    minTemperature.insertAdjacentText("beforeend", `${weatherData.forecast.forecastday[0].day.mintemp_c.toFixed(0)}`);
+    minTemperature.textContent = `${weatherData.forecast.forecastday[0].day.mintemp_c.toFixed(0)}º`;
 }
 
 function renderSecondaryStats(weatherData: WeatherData) {
