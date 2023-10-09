@@ -1,47 +1,4 @@
-@use "./variables";
-@use "./loading.scss";
-@use "../components/CurrentDate/currentDate";
-@use "../components/SearchBar/searchBar";
-@use "../components/HeroCard/heroCard";
-
-:root {
-    font-family: "Inter", sans-serif;
-}
-@supports (font-variation-settings: normal) {
-    :root {
-        font-family: "Inter var", sans-serif;
-    }
-}
-
-.container {
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-}
-
-/* Make the div#app take the whole page */
-body {
-    display: flex;
-    flex-direction: column;
-
-    #app {
-        flex-grow: 1;
-    }
-}
-
-#app {
-    display: flex;
-    flex-direction: column;
-    color: var(--full-white);
-}
-
-main {
-    flex: 1;
-    padding: 1.5em 3em;
-    background-size: cover;
-    background-position: center;
-}
-
+// Animation made by uiverse.io/profile/zanina-yassine
 #loading {
     display: flex;
     align-items: center;
