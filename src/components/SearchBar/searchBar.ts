@@ -1,4 +1,4 @@
-import { renderBackgroundImage, sanitizeInputString } from "../../helperFunctions";
+import { renderBackgroundImage, sanitizeInputString, transitionEffect } from "../../helperFunctions";
 import { getWeatherData } from "../../weatherApiFunctions";
 import { displayDateTime } from "../CurrentDate/currentDate";
 import { renderHeroCard } from "../HeroCard/heroCard";
@@ -15,7 +15,7 @@ function checkErrorPatterMissmatch() {
 function handleFormSubmit(submitEvent: SubmitEvent): void {
     submitEvent.preventDefault();
     const sanitizedString = sanitizeInputString(locationInput.value);
-    getWeatherData(sanitizedString).then((data) => {
+        getWeatherData(sanitizedString).then((data) => {
         renderHeroCard(data);
         renderBackgroundImage(data);
         displayDateTime(data);

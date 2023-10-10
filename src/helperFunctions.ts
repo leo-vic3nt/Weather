@@ -62,7 +62,7 @@ export function renderBackgroundImage(apiResponse: WeatherData): void {
 }
 
 // This feels like a hack, but i don't know a better way
-export function removeLoading() {
+export function removeLoading(): void {
     const loading = document.getElementById("loading") as HTMLDivElement;
     setTimeout(() => {
         loading.style.opacity = "0";
