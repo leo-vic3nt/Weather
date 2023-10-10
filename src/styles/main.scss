@@ -23,6 +23,8 @@
 body {
     display: flex;
     flex-direction: column;
+    background-size: cover;
+    background-position: center;
 
     #app {
         flex-grow: 1;
@@ -38,6 +40,4 @@ body {
 main {
     flex: 1;
     padding: 1.5em 3em;
-    background-size: cover;
-    background-position: center;
 }
