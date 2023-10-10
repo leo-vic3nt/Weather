@@ -61,14 +61,13 @@ export function renderBackgroundImage(apiResponse: WeatherData): void {
     };
 }
 
-export function toggleLoading() {
+// This feels like a hack, but i don't know a better way
+export function removeLoading() {
     const loading = document.getElementById("loading") as HTMLDivElement;
-    const styles = getComputedStyle(loading);
-    const display = styles.getPropertyValue("display");
-
-    if (display === "flex") {
-        loading.style.display = "none";
-    } else {
-        loading.style.display = "flex";
-    }
+    setTimeout(() => {
+        loading.style.opacity = "0";
+        setTimeout(() => {
+            loading.style.display = "none";
+        }, 500);
+    }, 1000);
 }
