@@ -27,15 +27,25 @@ function renderTemperature(weatherData: WeatherData) {
     minTemperature.textContent = `${weatherData.forecast.forecastday[0].day.mintemp_c.toFixed(0)}º`;
 }
 
-function renderSecondaryStats(weatherData: WeatherData) {
-    const conditionIcon = document.querySelector(".hero-card__condition-icon") as HTMLImageElement;
-    const currentConditionText = weatherData.current.condition.text;
+function loadIcon(weatherData: WeatherData): Promise<void> {
+    return new Promise((resolve) => {
+        const currentConditionText = weatherData.current.condition.text;
+        const conditionIcon = document.querySelector(".hero-card__condition-icon") as HTMLImageElement;
 
-    if (weatherData.current.is_day) {
-        conditionIcon.src = WEATHER_ICONS.day[currentConditionText];
-    } else {
-        conditionIcon.src = WEATHER_ICONS.night[currentConditionText];
-    }
+        if (weatherData.current.is_day) {
+            conditionIcon.src = WEATHER_ICONS.day[currentConditionText];
+        } else {
+            conditionIcon.src = WEATHER_ICONS.night[currentConditionText];
+        }
+
+        conditionIcon.onload = function () {
+            resolve();
+        };
+    });
+}
+
+async function renderSecondaryStats(weatherData: WeatherData) {
+    await loadIcon(weatherData);
 
     const humidityText = document.querySelector(".hero-card__humidity-text") as HTMLParagraphElement;
     humidityText.textContent = `${weatherData.current.humidity}%`;
@@ -51,8 +61,8 @@ function renderSecondaryStats(weatherData: WeatherData) {
     uvIndexText.textContent = `${weatherData.current.uv}.0`;
 }
 
-export function renderHeroCard(weatherData: WeatherData) {
+export async function renderHeroCard(weatherData: WeatherData) {
     renderGreetings(weatherData);
     renderTemperature(weatherData);
-    renderSecondaryStats(weatherData);
+    await renderSecondaryStats(weatherData);
 }

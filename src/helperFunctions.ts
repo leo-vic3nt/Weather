@@ -27,47 +27,54 @@ export function sanitizeInputString(string: string): string {
     return sanitizedString;
 }
 
-export function renderBackgroundImage(apiResponse: WeatherData): void {
+function loadBackgroundImage(apiResponse: WeatherData): Promise<HTMLImageElement> {
+    return new Promise((resolve) => {
+        const isDay = apiResponse.current.is_day;
+        const currentCondition = apiResponse.current.condition.text;
+        // apiResponse localtime format "YYYY-MM-DD HH:MM"
+        const currentTimeHours = Number(apiResponse.location.localtime.split(" ")[1].split(":")[0]);
+        // Adding 12 to convert it to 24 hours format to match currentTime format
+        const sunriseTime = Number(apiResponse.forecast.forecastday[0].astro.sunrise.split(":")[0]);
+        const sunsetTime = Number(apiResponse.forecast.forecastday[0].astro.sunset.split(":")[0]) + 12;
+
+        const img = new Image();
+
+        // Checking equality for the same hour
+        if (currentTimeHours === sunriseTime) {
+            img.src = BACKGROUND_IMGS.sunrise;
+        }
+        if (currentTimeHours === sunsetTime) {
+            img.src = BACKGROUND_IMGS.sunset;
+        }
+
+        if (isDay) {
+            img.src = BACKGROUND_IMGS.day[currentCondition];
+        } else {
+            img.src = BACKGROUND_IMGS.night[currentCondition];
+        }
+
+        img.onload = function () {
+            resolve(img);
+        };
+    });
+}
+
+export async function renderBackgroundImage(apiResponse: WeatherData): Promise<void> {
+    const backgroundImg = await loadBackgroundImage(apiResponse);
     const body = document.querySelector("body") as HTMLElement;
-    const isDay = apiResponse.current.is_day;
-    const currentCondition = apiResponse.current.condition.text;
     // greadientFilter creates a black tint over the background image for better readability
     const gradientFilter = "linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))";
 
-    // apiResponse localtime format "YYYY-MM-DD HH:MM"
-    const currentTimeHours = Number(apiResponse.location.localtime.split(" ")[1].split(":")[0]);
-    // Adding 12 to convert it to 24 hours format to match currentTime format
-    const sunriseTime = Number(apiResponse.forecast.forecastday[0].astro.sunrise.split(":")[0]);
-    const sunsetTime = Number(apiResponse.forecast.forecastday[0].astro.sunset.split(":")[0]) + 12;
-
-    const img = new Image();
-
-    // Checking equality for the same hour
-    if (currentTimeHours === sunriseTime) {
-        img.src = BACKGROUND_IMGS.sunrise;
-    }
-    if (currentTimeHours === sunsetTime) {
-        img.src = BACKGROUND_IMGS.sunset;
-    }
-
-    if (isDay) {
-        img.src = BACKGROUND_IMGS.day[currentCondition];
-    } else {
-        img.src = BACKGROUND_IMGS.night[currentCondition];
-    }
-
-    img.onload = function () {
-        body.style.backgroundImage = `${gradientFilter},url(${img.src})`;
-    };
+    body.style.backgroundImage = `${gradientFilter},url(${backgroundImg.src})`;
 }
 
-// This feels like a hack, but i don't know a better way
+// This feels like a hack. Implement 1s delay for better experience
 export function removeLoading(): void {
     const loading = document.getElementById("loading") as HTMLDivElement;
     setTimeout(() => {
         loading.style.opacity = "0";
         setTimeout(() => {
             loading.style.display = "none";
-        }, 500);
-    }, 500);
+        }, 1000);
+    }, 1000);
 }

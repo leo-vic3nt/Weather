@@ -7,11 +7,14 @@ import { WeatherData } from "./weatherApiInterfaces";
 
 innitLocationSearch();
 
-function renderPage(data: WeatherData): void {
-    renderHeroCard(data);
-    renderBackgroundImage(data);
-    displayDateTime(data);
-    removeLoading();
+// Exported to be used on the search event listener
+export function renderPage(data: WeatherData): void {
+    renderBackgroundImage(data).then(() => {
+        renderHeroCard(data).then(() => {
+            displayDateTime(data);
+            removeLoading();
+        });
+    });
 }
 
 getWeatherByGeolocation()
