@@ -11,7 +11,6 @@ getWeatherData("Iguatu")
         renderHeroCard(res);
         renderBackgroundImage(res);
         displayDateTime(res);
-    })
-    .then(() => {
         removeLoading();
-    });
+    })
+
