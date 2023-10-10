@@ -48,6 +48,7 @@
             .hero-card__max-temperature-container,
             .hero-card__min-temperature-container {
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
                 font-size: var(--fs-lg);
                 font-weight: var(--fw-light);
