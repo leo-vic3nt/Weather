@@ -1,6 +1,6 @@
 .search {
     display: flex;
-    width: clamp(350px, 90%, 400px);
+    width: 330px;
     transition: all ease-in-out 0.5s;
     border-radius: 30px;
 
@@ -48,6 +48,11 @@
 
         &:focus {
             outline: none;
+        }
+
+        img {
+            width: 30px;
+            height: auto;
         }
     }
 }
