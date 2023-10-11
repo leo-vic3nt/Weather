@@ -39,18 +39,18 @@ function loadBackgroundImage(apiResponse: WeatherData): Promise<HTMLImageElement
 
         const img = new Image();
 
+        if (isDay) {
+            img.src = BACKGROUND_IMGS.day[currentCondition];
+        } else {
+            img.src = BACKGROUND_IMGS.night[currentCondition];
+        }
+
         // Checking equality for the same hour
         if (currentTimeHours === sunriseTime) {
             img.src = BACKGROUND_IMGS.sunrise;
         }
         if (currentTimeHours === sunsetTime) {
             img.src = BACKGROUND_IMGS.sunset;
-        }
-
-        if (isDay) {
-            img.src = BACKGROUND_IMGS.day[currentCondition];
-        } else {
-            img.src = BACKGROUND_IMGS.night[currentCondition];
         }
 
         img.onload = function () {
