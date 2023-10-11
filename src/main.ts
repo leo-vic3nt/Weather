@@ -17,11 +17,14 @@ export function renderPage(data: WeatherData): void {
     });
 }
 
-getWeatherByGeolocation()
-    .then((res) => renderPage(res))
+// TODO Handle error from getWeatherData call
+getWeatherByIp()
+    .then((data) => renderPage(data))
     .catch((err) => {
         console.error(err);
-        getWeatherByIp()
-            .then((res) => renderPage(res))
-            .catch(() => getWeatherData("Fortaleza"));
+        getWeatherData("Fortaleza").then((data) => renderPage(data));
     });
+
+getWeatherByGeolocation()
+    .then((data) => renderPage(data))
+    .catch((err) => console.error(err));
