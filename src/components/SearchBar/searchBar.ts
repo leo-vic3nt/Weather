@@ -1,4 +1,4 @@
-import { sanitizeInputString } from "../../helperFunctions";
+import { fadeIn, fadeOut, sanitizeInputString } from "../../helperFunctions";
 import { renderPage } from "../../main";
 import { getWeatherData } from "../../weatherApiFunctions";
 
@@ -13,9 +13,11 @@ function checkErrorPatterMissmatch() {
 
 function handleFormSubmit(submitEvent: SubmitEvent): void {
     submitEvent.preventDefault();
+    fadeOut();
     const sanitizedString = sanitizeInputString(locationInput.value);
+
     getWeatherData(sanitizedString).then((data) => {
-        renderPage(data);
+        renderPage(data).then(() => fadeIn());
     });
 }
 

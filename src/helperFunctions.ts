@@ -78,3 +78,13 @@ export function removeLoading(): void {
         }, 1000);
     }, 1000);
 }
+
+export function fadeOut(): void {
+    const main = document.querySelector("main") as HTMLElement;
+    main.classList.add("fade-out");
+}
+
+export function fadeIn(): void {
+    const main = document.querySelector("main") as HTMLElement;
+    main.classList.remove("fade-out");
+}

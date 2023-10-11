@@ -13,6 +13,10 @@
     }
 }
 
+.fade-out {
+    opacity: 0;
+}
+
 .container {
     width: 100%;
     max-width: 1800px;
@@ -40,4 +44,5 @@ body {
 main {
     flex: 1;
     padding: 1.5em 3em;
+    transition: opacity 0.5s ease-in-out;
 }

@@ -8,13 +8,11 @@ import { WeatherData } from "./weatherApiInterfaces";
 innitLocationSearch();
 
 // Exported to be used on the search event listener
-export function renderPage(data: WeatherData): void {
-    renderBackgroundImage(data).then(() => {
-        renderHeroCard(data).then(() => {
-            displayDateTime(data);
-            removeLoading();
-        });
-    });
+export async function renderPage(data: WeatherData): Promise<void> {
+    await renderBackgroundImage(data);
+    await renderHeroCard(data);
+    displayDateTime(data);
+    removeLoading();
 }
 
 // TODO Handle error from getWeatherData call
