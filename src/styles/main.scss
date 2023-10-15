@@ -25,7 +25,7 @@
     margin: 0 auto;
 }
 
-/* Make the div#app take the whole page */
+/* Make the div#app and main take the whole page */
 body {
     display: flex;
     flex-direction: column;
@@ -34,11 +34,13 @@ body {
 
     #app {
         flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 }
 
 /* Layout */
-#app {
+main {
     display: flex;
     flex-direction: column;
 }

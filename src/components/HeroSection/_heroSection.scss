@@ -1,6 +1,8 @@
 .hero-section {
     display: flex;
     justify-content: space-between;
+    padding: 0 var(--spacing-xxl);
+
 
     .hero-section__temperature {
         display: flex;
@@ -53,21 +55,23 @@
 
     .hero-section__secondary-stats {
         display: flex;
-        gap: 1em;
+        align-items: center;
+        gap: var(--spacing-lg);
 
         .hero-section__condition-icon {
             height: auto;
-            width: 195px;
+            width: var(--size-condition-icon);
         }
 
         .stats-container {
             display: flex;
             flex-direction: column;
-            gap: 1em;
+            font-size: var(--font-size-2);
+            gap: var(--spacing-sm);
 
             img {
                 height: auto;
-                width: 45px;
+                width: var(--size-stats-icon);
             }
 
             .hero-section__humidity,
@@ -79,7 +83,7 @@
                 gap: 5px;
 
                 font-size: var(--fs-md);
-                font-weight: var(--fw-lil-bold);
+                font-weight: var(--fw-regular);
             }
         }
     }

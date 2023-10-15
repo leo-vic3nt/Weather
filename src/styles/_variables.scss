@@ -14,8 +14,11 @@
     --font-size-9: calc(var(--font-size-8) + 4px);
     --font-size-10: calc(var(--font-size-9) + 4px);
 
+    --font-size-greetings-title : calc(70px + var(--base-font-size));
     --font-size-temperature-value: calc(170px + var(--base-font-size));
     --size-temperature-icon: calc(90px + var(--base-font-size));
+    --size-condition-icon: calc(250px + var(--base-font-size));
+    --size-stats-icon: calc(50px + var(--base-font-size));
 
     --fw-light: 300;
     --fw-regular: 400;
@@ -24,6 +27,7 @@
     --fw-bold: 700;
     --fw-extra-bold: 800;
 
+    --spacing-xxs: 0.25em;
     --spacing-xs: 0.5em;
     --spacing-sm: 1em;
     --spacing-md: 1.5em;
