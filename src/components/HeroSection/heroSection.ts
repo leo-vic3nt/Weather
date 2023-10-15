@@ -8,7 +8,7 @@ export async function renderHeroSection(weatherData: WeatherData) {
 
 function renderTemperature(weatherData: WeatherData) {
     const temperature = document.querySelector(".hero-section__temperature-value") as HTMLParagraphElement;
-    temperature.textContent = `${weatherData.current.temp_c}`;
+    temperature.textContent = `${weatherData.current.temp_c.toFixed(0)}`;
 
     const maxTemperature = document.querySelector(".hero-section__max-temperature") as HTMLParagraphElement;
     maxTemperature.textContent = `${weatherData.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}º`;
