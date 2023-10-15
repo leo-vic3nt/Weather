@@ -5,33 +5,33 @@
     .hero-section__temperature {
         display: flex;
         align-items: center;
-        padding-left: 20px;
+        padding-left: var(--spacing-md);
 
         .hero-section__temperature-value-container {
             display: flex;
             align-items: center;
 
             .hero-section__temperature-value {
-                font-size: 70px;
+                font-size: var(--font-size-temperature-value);
                 font-weight: var(--fw-extra-bold);
             }
 
             .hero-section__temperature-icon {
                 height: auto;
-                width: 50px;
+                width: var(--size-temperature-icon);
             }
         }
 
         .hero-section__min-max-container {
             display: flex;
             flex-direction: column;
-            padding-left: 0.5em;
+            padding-left: var(--spacing-xs);
 
             .hero-section__max-temperature-container,
             .hero-section__min-temperature-container {
                 display: flex;
                 align-items: center;
-                font-size: var(--fs-lg);
+                font-size: var(--font-size-6);
                 font-weight: var(--fw-light);
             }
 
@@ -45,7 +45,7 @@
 
             img {
                 height: auto;
-                width: 30px;
+                width: var(--font-size-4);
                 margin-left: auto;
             }
         }

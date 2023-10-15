@@ -1,6 +1,6 @@
 :root {
     --full-white: #fff;
-    --neutral-white: #f4f3f2;
+    --neutral-white: #efefef;
 
     --base-font-size: 18px;
     --font-size-1: calc(var(--base-font-size) + 4px);
@@ -13,6 +13,9 @@
     --font-size-8: calc(var(--font-size-7) + 4px);
     --font-size-9: calc(var(--font-size-8) + 4px);
     --font-size-10: calc(var(--font-size-9) + 4px);
+
+    --font-size-temperature-value: calc(170px + var(--base-font-size));
+    --size-temperature-icon: calc(90px + var(--base-font-size));
 
     --fw-light: 300;
     --fw-regular: 400;
