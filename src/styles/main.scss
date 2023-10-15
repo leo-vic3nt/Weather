@@ -1,8 +1,9 @@
 @use "./variables";
 @use "./loading.scss";
 @use "../components/CurrentDate/currentDate";
+@use "../components/Greetings/greetings";
 @use "../components/SearchBar/searchBar";
-@use "../components/HeroCard/heroCard";
+@use "../components/HeroSection/heroSection";
 
 :root {
     font-family: "Inter", sans-serif;

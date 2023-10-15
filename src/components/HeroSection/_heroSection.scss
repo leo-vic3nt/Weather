@@ -1,62 +1,45 @@
-.hero-card {
+.hero-section {
     display: flex;
     flex-direction: column;
 
-    .hero-card__greetings {
-        padding-left: 20px;
-
-        .hero-card__subtitle {
-            padding-left: 3px;
-            font-weight: var(--fw-regular);
-            font-style: italic;
-        }
-
-        .hero-card__title {
-            line-height: 1;
-            text-transform: capitalize;
-            font-weight: var(--fw-extra-bold);
-            font-size: 50px;
-        }
-    }
-
-    .hero-card__temperature {
+    .hero-section__temperature {
         display: flex;
         align-items: center;
         padding-left: 20px;
 
-        .hero-card__temperature-value-container {
+        .hero-section__temperature-value-container {
             display: flex;
             align-items: center;
 
-            .hero-card__temperature-value {
+            .hero-section__temperature-value {
                 font-size: 70px;
                 font-weight: var(--fw-extra-bold);
             }
 
-            .hero-card__temperature-icon {
+            .hero-section__temperature-icon {
                 height: auto;
                 width: 50px;
             }
         }
 
-        .hero-card__min-max-container {
+        .hero-section__min-max-container {
             display: flex;
             flex-direction: column;
             padding-left: 0.5em;
 
-            .hero-card__max-temperature-container,
-            .hero-card__min-temperature-container {
+            .hero-section__max-temperature-container,
+            .hero-section__min-temperature-container {
                 display: flex;
                 align-items: center;
                 font-size: var(--fs-lg);
                 font-weight: var(--fw-light);
             }
 
-            .hero-card__max-temperature {
+            .hero-section__max-temperature {
                 color: #ffcccc;
             }
 
-            .hero-card__min-temperature {
+            .hero-section__min-temperature {
                 color: #ccccff;
             }
 
@@ -68,11 +51,11 @@
         }
     }
 
-    .hero-card__secondary-stats {
+    .hero-section__secondary-stats {
         display: flex;
         gap: 1em;
 
-        .hero-card__condition-icon {
+        .hero-section__condition-icon {
             height: auto;
             width: 195px;
         }
@@ -87,10 +70,10 @@
                 width: 45px;
             }
 
-            .hero-card__humidity,
-            .hero-card__chance-of-rain,
-            .hero-card__wind-speed,
-            .hero-card__uv-index {
+            .hero-section__humidity,
+            .hero-section__chance-of-rain,
+            .hero-section__wind-speed,
+            .hero-section__uv-index {
                 display: flex;
                 align-items: center;
                 gap: 5px;

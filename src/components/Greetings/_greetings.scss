@@ -1,0 +1,16 @@
+.greetings {
+    padding-left: 20px;
+
+    .greetings__subtitle {
+        padding-left: 3px;
+        font-weight: var(--fw-regular);
+        font-style: italic;
+    }
+
+    .greetings__title {
+        line-height: 1;
+        text-transform: capitalize;
+        font-weight: var(--fw-extra-bold);
+        font-size: 50px;
+    }
+}

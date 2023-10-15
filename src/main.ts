@@ -1,5 +1,6 @@
 import { displayDateTime } from "./components/CurrentDate/currentDate";
-import { renderHeroCard } from "./components/HeroCard/heroCard";
+import { renderGreetings } from "./components/Greetings/greetings";
+import { renderHeroSection } from "./components/HeroSection/heroSection";
 import { innitLocationSearch } from "./components/SearchBar/searchBar";
 import { renderBackgroundImage, removeLoading } from "./helperFunctions";
 import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./weatherApiFunctions";
@@ -10,7 +11,8 @@ innitLocationSearch();
 // Exported to be used on the search event listener
 export async function renderPage(data: WeatherData): Promise<void> {
     await renderBackgroundImage(data);
-    await renderHeroCard(data);
+    await renderHeroSection(data);
+    renderGreetings(data);
     displayDateTime(data);
     removeLoading();
 }
