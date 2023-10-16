@@ -2,7 +2,7 @@
     --full-white: #fff;
     --neutral-white: #efefef;
 
-    --base-font-size: 18px;
+    --base-font-size: clamp(18px, 2vw, 25px);
     --font-size-1: calc(var(--base-font-size) + 4px);
     --font-size-2: calc(var(--font-size-1) + 4px);
     --font-size-3: calc(var(--font-size-2) + 4px);
@@ -14,7 +14,7 @@
     --font-size-9: calc(var(--font-size-8) + 4px);
     --font-size-10: calc(var(--font-size-9) + 4px);
 
-    --font-size-greetings-title : calc(70px + var(--base-font-size));
+    --font-size-greetings-title: clamp(70px, 5vw, 120px);
     --font-size-temperature-value: calc(170px + var(--base-font-size));
     --size-temperature-icon: calc(90px + var(--base-font-size));
     --size-condition-icon: calc(250px + var(--base-font-size));

@@ -6,6 +6,7 @@
 @use "../components/HeroSection/heroSection";
 
 :root {
+    font-size: var(--base-font-size);
     font-family: "Inter", sans-serif;
     color: var(--full-white);
 }

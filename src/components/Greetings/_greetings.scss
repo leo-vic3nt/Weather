@@ -1,12 +1,15 @@
 .greetings {
-    padding-left: var(--spacing-md);
-    padding-top: var(--spacing-md);
-
     .greetings__subtitle {
-        padding-left: var(--spacing-xs);
+
+        padding-top: var(--spacing-lg);
+        @media (max-width: 1400px) {
+            padding-top: var(--spacing-xs);
+        }
+
+        padding-left: var(--spacing-xxs);
         color: var(--neutral-white);
-        font-weight: var(--fw-regular);
         font-size: var(--font-size-1);
+        font-weight: var(--fw-regular);
         font-style: italic;
     }
 
