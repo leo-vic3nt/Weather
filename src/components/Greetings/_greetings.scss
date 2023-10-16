@@ -1,16 +1,15 @@
 .greetings {
     .greetings__subtitle {
-
         padding-top: var(--spacing-xs);
-        @media (min-width: 1400px) {
-            padding-top: var(--spacing-lg);
-        }
-
         padding-left: var(--spacing-xxs);
         color: var(--neutral-white);
-        font-size: var(--font-size-1);
         font-weight: var(--fw-regular);
         font-style: italic;
+
+        @media (min-width: 1400px) {
+            padding-top: var(--spacing-lg);
+            font-size: var(--font-size-1);
+        }
     }
 
     .greetings__title {
