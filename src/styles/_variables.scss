@@ -2,7 +2,7 @@
     --full-white: #fff;
     --neutral-white: #efefef;
 
-    --base-font-size: clamp(18px, 2vw, 25px);
+    --base-font-size: clamp(1.125rem, 2vw, 1.6rem);
     --font-size-1: calc(var(--base-font-size) + 4px);
     --font-size-2: calc(var(--font-size-1) + 4px);
     --font-size-3: calc(var(--font-size-2) + 4px);
