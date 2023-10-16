@@ -1,9 +1,9 @@
 .greetings {
     .greetings__subtitle {
 
-        padding-top: var(--spacing-lg);
-        @media (max-width: 1400px) {
-            padding-top: var(--spacing-xs);
+        padding-top: var(--spacing-xs);
+        @media (min-width: 1400px) {
+            padding-top: var(--spacing-lg);
         }
 
         padding-left: var(--spacing-xxs);
