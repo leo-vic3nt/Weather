@@ -1,17 +1,9 @@
 @use "../../styles/variables";
 
 .date {
-
-    @media (min-width: 1400px) {
-        font-size: var(--font-size-1);
-    }
-
-    line-height: 1;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
 
     .date__time {
         font-weight: var(--fw-semi-bold);
@@ -19,5 +11,9 @@
 
     .date__formatted {
         font-weight: 200;
+    }
+
+    @media (min-width: 1400px) {
+        font-size: var(--font-size-1);
     }
 }
