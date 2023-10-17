@@ -33,12 +33,18 @@
             .hero-section__max-temperature-container,
             .hero-section__min-temperature-container {
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
                 font-weight: var(--fw-light);
                 font-size: var(--font-size-6);
 
                 @media (max-width: 1400px) {
                     font-size: var(--font-size-4);
+
+                    // Icons
+                    img {
+                        width: 40px;
+                    }
                 }
             }
 
@@ -49,19 +55,13 @@
             .hero-section__min-temperature {
                 color: #ccccff;
             }
-
-            img {
-                height: auto;
-                width: var(--font-size-4);
-                margin-left: auto;
-            }
         }
     }
 
     .hero-section__secondary-stats {
         display: flex;
         align-items: center;
-        gap: var(--spacing-lg);
+        gap: var(--spacing-md);
 
         .hero-section__condition-icon {
             height: auto;
@@ -72,11 +72,12 @@
             display: flex;
             flex-direction: column;
             font-size: var(--font-size-2);
-            gap: var(--spacing-sm);
+            gap: var(--spacing-xs);
 
-            img {
-                height: auto;
-                width: var(--size-stats-icon);
+            @media (min-width: 1400px) {
+                img {
+                    width: 55px;
+                }
             }
 
             .hero-section__humidity,
@@ -85,10 +86,8 @@
             .hero-section__uv-index {
                 display: flex;
                 align-items: center;
-                gap: 5px;
-
-                font-size: var(--fs-md);
-                font-weight: var(--fw-regular);
+                gap: var(--spacing-xxs);
+                font-size: var(--font-size-1);
             }
         }
     }
