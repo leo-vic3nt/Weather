@@ -3,6 +3,12 @@
     justify-content: space-between;
     padding: 0 var(--spacing-xxl);
 
+    .hero-section__condition-icon{
+        @media (min-width : 1400px){
+            width : 230px;
+        }
+    }
+
     .hero-section__temperature {
         display: flex;
         align-items: center;
@@ -62,6 +68,9 @@
         display: flex;
         align-items: center;
         gap: var(--spacing-md);
+
+
+
 
         .stats-container {
             display: flex;
