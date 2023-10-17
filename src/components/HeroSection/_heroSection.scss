@@ -36,7 +36,7 @@
                 justify-content: space-between;
                 align-items: center;
                 font-weight: var(--fw-light);
-                font-size: var(--font-size-6);
+                font-size: var(--font-size-5);
 
                 @media (max-width: 1400px) {
                     font-size: var(--font-size-4);
@@ -63,16 +63,10 @@
         align-items: center;
         gap: var(--spacing-md);
 
-        .hero-section__condition-icon {
-            height: auto;
-            width: var(--size-condition-icon);
-        }
-
         .stats-container {
             display: flex;
             flex-direction: column;
-            font-size: var(--font-size-2);
-            gap: var(--spacing-xs);
+            gap: var(--spacing-sm);
 
             @media (min-width: 1400px) {
                 img {
