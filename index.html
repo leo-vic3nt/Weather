@@ -107,6 +107,23 @@
                     </div>
                 </div>
 
+                <form class="search">
+                    <button class="search__button">
+                        <img class="search__icon" src="/icons/search-icon.svg" alt="search icon" />
+                    </button>
+                    <input
+                        required
+                        placeholder="Location..."
+                        type="text"
+                        name="location"
+                        id="location-input"
+                        minlength="3"
+                        maxlength="30"
+                        pattern="[^0-9]*"
+                        title="No numbers allowed"
+                        class="search__input" />
+                </form>
+
                 <div class="date">
                     <p class="date__time"></p>
                     <p class="date__formatted"></p>
@@ -184,23 +201,6 @@
                         </div>
                     </div>
                 </div>
-
-                <form class="search">
-                    <input
-                        required
-                        placeholder="Location..."
-                        type="text"
-                        name="location"
-                        id="location-input"
-                        minlength="3"
-                        maxlength="30"
-                        pattern="[^0-9]*"
-                        title="No numbers allowed"
-                        class="search__input" />
-                    <button class="search__button">
-                        <img class="search__icon" src="/icons/search-icon.svg" alt="search icon" />
-                    </button>
-                </form>
             </main>
         </div>
         <script type="module" src="/src/main.ts"></script>
