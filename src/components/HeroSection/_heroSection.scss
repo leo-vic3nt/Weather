@@ -27,6 +27,7 @@
         .hero-section__min-max-container {
             display: flex;
             flex-direction: column;
+            gap: var(--spacing-xxs);
             padding-left: var(--spacing-xs);
 
             .hero-section__max-temperature-container,

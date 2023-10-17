@@ -2,7 +2,7 @@
     --full-white: #fff;
     --neutral-white: #efefef;
 
-    --base-font-size: clamp(1.125rem, 1.5vw, 1.6rem);
+    --base-font-size: clamp(1.125rem, 1.5vw, 1.313rem);
     --font-size-1: calc(var(--base-font-size) + 4px);
     --font-size-2: calc(var(--font-size-1) + 4px);
     --font-size-3: calc(var(--font-size-2) + 4px);
@@ -14,8 +14,8 @@
     --font-size-9: calc(var(--font-size-8) + 4px);
     --font-size-10: calc(var(--font-size-9) + 4px);
 
-    --font-size-greetings-title: clamp(70px, 5vw, 120px);
-    --font-size-temperature-value: clamp(120px, 12vw, 220px);
+    --font-size-greetings-title: clamp(60px, 5vw, 100px);
+    --font-size-temperature-value: clamp(120px, 12vw, 200px);
     --size-condition-icon: calc(250px + var(--base-font-size));
     --size-stats-icon: calc(50px + var(--base-font-size));
 
