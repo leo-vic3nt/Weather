@@ -19,6 +19,8 @@ function handleFormSubmit(submitEvent: SubmitEvent): void {
     getWeatherData(sanitizedString).then((data) => {
         renderPage(data).then(() => fadeIn());
     });
+
+    locationInput.value = "";
 }
 
 export function innitLocationSearch(): void {
