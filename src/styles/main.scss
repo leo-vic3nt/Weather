@@ -42,12 +42,18 @@ body {
 
 /* Layout */
 main {
-   display: grid;
-   grid-template-rows: auto auto 1fr auto;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
 }
 
 main {
     flex: 1;
     padding: var(--spacing-md) var(--spacing-xxl);
     transition: opacity 0.5s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: var(--spacing-md) var(--spacing-xs);
+    }
 }

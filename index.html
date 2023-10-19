@@ -107,22 +107,52 @@
                     </div>
                 </div>
 
-                <form class="search">
-                    <button class="search__button">
-                        <img class="search__icon" src="/icons/search-icon.svg" alt="search icon" />
-                    </button>
-                    <input
-                        required
-                        placeholder="Location..."
-                        type="text"
-                        name="location"
-                        id="location-input"
-                        minlength="3"
-                        maxlength="30"
-                        pattern="[^0-9]*"
-                        title="No numbers allowed"
-                        class="search__input" />
-                </form>
+                <div class="search-container">
+                    <form class="search">
+                        <button class="search__button">
+                            <svg
+                                viewBox="0 0 24 24"
+                                id="Layer_1"
+                                data-name="Layer 1"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="#fff"
+                                stroke="#fff">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <defs>
+                                        <style>
+                                            .cls-1 {
+                                                fill: none;
+                                                stroke: #fff;
+                                                stroke-miterlimit: 10;
+                                                stroke-width: 1px;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <polyline
+                                        class="cls-1"
+                                        points="18.29 16.52 22.5 17.73 22.5 4.36 15.82 2.46 8.18 4.36 1.5 2.46 1.5 15.82 8.18 17.73 11.62 16.87"></polyline>
+                                    <line class="cls-1" x1="8.18" y1="4.36" x2="8.18" y2="17.73"></line>
+                                    <line class="cls-1" x1="15.82" y1="11.17" x2="15.82" y2="2.45"></line>
+                                    <circle class="cls-1" cx="14.86" cy="14.86" r="3.82"></circle>
+                                    <line class="cls-1" x1="17.73" y1="17.73" x2="21.55" y2="21.55"></line>
+                                </g>
+                            </svg>
+                        </button>
+                        <input
+                            required
+                            placeholder="Location..."
+                            type="text"
+                            name="location"
+                            id="location-input"
+                            minlength="3"
+                            maxlength="30"
+                            pattern="[^0-9]*"
+                            title="No numbers allowed"
+                            class="search__input" />
+                    </form>
+                </div>
 
                 <div class="date">
                     <p class="date__time"></p>
