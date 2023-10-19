@@ -10,6 +10,10 @@
             padding-top: var(--spacing-sm);
             font-size: var(--font-size-1);
         }
+
+        @media (max-width: 700px) {
+            padding-top: var(--spacing-md);
+        }
     }
 
     .greetings__title {

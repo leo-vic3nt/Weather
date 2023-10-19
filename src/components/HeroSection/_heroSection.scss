@@ -7,7 +7,7 @@
         flex-direction: column-reverse;
         justify-content: space-evenly;
         align-items: center;
-
+        padding: 0;
     }
 
     .hero-section__condition-icon {
@@ -24,8 +24,6 @@
         @media (max-width: 1000px) {
             padding-left: 0;
         }
-
-
 
         .hero-section__temperature-value-container {
             display: flex;

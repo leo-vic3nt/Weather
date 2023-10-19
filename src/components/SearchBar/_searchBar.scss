@@ -5,6 +5,10 @@ element absolute positiotning
 .search-container {
     position: absolute;
     right: var(--spacing-xxl);
+
+    @media (max-width : 800px){
+        top : 70px;
+    }
 }
 
 .search {
