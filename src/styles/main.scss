@@ -4,6 +4,7 @@
 @use "../components/Greetings/greetings";
 @use "../components/SearchBar/searchBar";
 @use "../components/HeroSection/heroSection";
+@use "../components/Navigation/_navigation";
 
 :root {
     font-size: var(--base-font-size);
@@ -51,5 +52,4 @@ main {
     padding: var(--spacing-md) var(--spacing-xxl);
     transition: opacity 0.5s ease-in-out;
 }
-
 
