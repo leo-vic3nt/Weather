@@ -26,7 +26,7 @@ export async function getWeatherData(location: string): Promise<WeatherData> {
                     throw new GenericError();
             }
         } catch (error) {
-            if (error instanceof LocationNotFound || error instanceof ApiInternalError || i === 3) {
+            if (error instanceof LocationNotFound || error instanceof ApiInternalError || i === 2) {
                 throw error;
             }
             await sleep(500);
