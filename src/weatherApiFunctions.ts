@@ -26,6 +26,7 @@ export async function getWeatherData(location: string): Promise<WeatherData> {
                     throw new GenericError();
             }
         } catch (error) {
+            // If i === 2 skips the sleep
             if (error instanceof LocationNotFound || error instanceof ApiInternalError || i === 2) {
                 throw error;
             }
@@ -33,6 +34,7 @@ export async function getWeatherData(location: string): Promise<WeatherData> {
         }
     }
 
+    // This is only here because of typescript noImplicitReturns rule
     throw new GenericError();
 }
 
