@@ -1,0 +1,23 @@
+.navigation-left {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: var(--spacing-xs);
+
+    @media (max-width: 1400px) {
+        width: 50px;
+    }
+}
+
+.navigation-right {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-xs);
+
+    @media (max-width: 1400px) {
+        width: 50px;
+    }
+
+
+}
