@@ -2,9 +2,9 @@ import { displayDateTime } from "./components/CurrentDate/currentDate";
 import { renderGreetings } from "./components/Greetings/greetings";
 import { renderHeroSection } from "./components/HeroSection/heroSection";
 import { innitLocationSearch as innitSearch } from "./components/SearchBar/searchBar";
-import { renderBackgroundImage, removeLoading } from "./helperFunctions";
-import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./weatherApiFunctions";
-import { WeatherData } from "./weatherApiInterfaces";
+import { renderBackgroundImage, removeLoading } from "./ts/helperFunctions";
+import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./ts/weatherApiFunctions";
+import { WeatherData } from "./ts/weatherApiInterfaces";
 
 export let currentWeatherData: WeatherData;
 

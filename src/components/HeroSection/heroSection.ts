@@ -1,5 +1,5 @@
 import { WeatherData } from "../../weatherApiInterfaces";
-import { WEATHER_ICONS } from "../../imagesMapping";
+import { WEATHER_ICONS } from "../../ts/imagesMapping";
 
 export async function renderHeroSection(weatherData: WeatherData) {
     renderTemperature(weatherData);

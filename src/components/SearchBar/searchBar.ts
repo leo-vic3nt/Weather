@@ -1,6 +1,6 @@
-import { fadeIn, fadeOut, sanitizeInputString } from "../../helperFunctions";
+import { fadeIn, fadeOut, sanitizeInputString } from "../../ts/helperFunctions";
 import { renderPage } from "../../main";
-import { getWeatherData } from "../../weatherApiFunctions";
+import { getWeatherData } from "../../ts/weatherApiFunctions";
 
 const locationForm = document.querySelector(".search") as HTMLFormElement;
 const locationInput = document.querySelector(".search__input") as HTMLInputElement;
