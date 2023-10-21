@@ -1,19 +1,21 @@
 import { BACKGROUND_IMGS } from "./imagesMapping";
 import { WeatherData } from "./weatherApiInterfaces";
 
-export function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
+export { requestGeolocation, sleep, sanitizeInputString, renderBackgroundImage, removeLoading, fadeOut, fadeIn };
+
+function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true });
     });
 }
 
-export function sleep(delay: number): Promise<void> {
+function sleep(delay: number): Promise<void> {
     return new Promise((resolve) => {
         setTimeout(resolve, delay);
     });
 }
 
-export function sanitizeInputString(string: string): string {
+function sanitizeInputString(string: string): string {
     // Normalize the Unicode format
     const normalizedString = string.normalize("NFD");
     /*
@@ -57,7 +59,7 @@ function loadBackgroundImage(apiResponse: WeatherData): Promise<HTMLImageElement
     });
 }
 
-export async function renderBackgroundImage(apiResponse: WeatherData): Promise<void> {
+async function renderBackgroundImage(apiResponse: WeatherData): Promise<void> {
     const backgroundImg = await loadBackgroundImage(apiResponse);
     const body = document.querySelector("body") as HTMLElement;
     // greadientFilter creates a black tint over the background image for better readability
@@ -67,7 +69,7 @@ export async function renderBackgroundImage(apiResponse: WeatherData): Promise<v
 }
 
 // This feels like a hack. Implement 1s delay for better experience
-export function removeLoading(): void {
+function removeLoading(): void {
     const loading = document.getElementById("loading") as HTMLDivElement;
     setTimeout(() => {
         loading.style.opacity = "0";
@@ -77,12 +79,12 @@ export function removeLoading(): void {
     }, 1000);
 }
 
-export function fadeOut(): void {
+function fadeOut(): void {
     const main = document.querySelector("main") as HTMLElement;
     main.classList.add("fade-out");
 }
 
-export function fadeIn(): void {
+function fadeIn(): void {
     const main = document.querySelector("main") as HTMLElement;
     main.classList.remove("fade-out");
 }

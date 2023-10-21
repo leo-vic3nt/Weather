@@ -1,3 +1,5 @@
+export type { WeatherData, ApiError };
+
 interface Location {
     name: string;
     region: string;
@@ -70,13 +72,13 @@ interface Forecast {
     forecastday: Forecastday[];
 }
 
-export interface WeatherData {
+interface WeatherData {
     location: Location;
     current: Current;
     forecast: Forecast;
 }
 
-export interface ApiError {
+interface ApiError {
     error: {
         code: number;
         message: string;

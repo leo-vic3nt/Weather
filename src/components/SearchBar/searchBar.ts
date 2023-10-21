@@ -2,6 +2,8 @@ import { fadeIn, fadeOut, sanitizeInputString } from "../../ts/helperFunctions";
 import { renderPage } from "../../main";
 import { getWeatherData } from "../../ts/weatherApiFunctions";
 
+export { innitLocationSearch };
+
 const locationForm = document.querySelector(".search") as HTMLFormElement;
 const locationInput = document.querySelector(".search__input") as HTMLInputElement;
 
@@ -23,7 +25,7 @@ function handleFormSubmit(submitEvent: SubmitEvent): void {
     locationInput.value = "";
 }
 
-export function innitLocationSearch(): void {
+function innitLocationSearch(): void {
     locationInput.addEventListener("input", checkErrorPatterMissmatch);
     locationForm.addEventListener("submit", handleFormSubmit);
 }

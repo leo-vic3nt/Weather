@@ -1,4 +1,6 @@
-import { WeatherData } from "../../weatherApiInterfaces";
+import { WeatherData } from "../../ts/weatherApiInterfaces";
+
+export { displayDateTime };
 
 function getLocalTimeDateObj(apiResponse: WeatherData): Date {
     // Api response localtime property format: "YYYY-MM-DD HH:MM"
@@ -38,7 +40,7 @@ function renderTime(time: string): void {
     timeElement.textContent = time;
 }
 
-export function displayDateTime(apiResponse: WeatherData): void {
+function displayDateTime(apiResponse: WeatherData): void {
     const date = getLocalTimeDateObj(apiResponse);
 
     renderDate(formatDate(date));
