@@ -1,7 +1,7 @@
 import { WeatherData } from "../../ts/weatherApiInterfaces";
-import { WEATHER_ICONS } from "../../ts/imagesMapping";
+import { loadIcon } from "../../ts/helperFunctions";
 
-export { renderHeroSection };
+export { renderHeroSection, loadIcon };
 
 function renderTemperature(weatherData: WeatherData) {
     const temperature = document.querySelector(".hero-section__temperature-value") as HTMLParagraphElement;
@@ -12,23 +12,6 @@ function renderTemperature(weatherData: WeatherData) {
 
     const minTemperature = document.querySelector(".hero-section__min-temperature") as HTMLParagraphElement;
     minTemperature.textContent = `${weatherData.forecast.forecastday[0].day.mintemp_c.toFixed(0)}º`;
-}
-
-function loadIcon(weatherData: WeatherData): Promise<void> {
-    return new Promise((resolve) => {
-        const currentConditionText = weatherData.current.condition.text;
-        const conditionIcon = document.querySelector(".hero-section__condition-icon") as HTMLImageElement;
-
-        if (weatherData.current.is_day) {
-            conditionIcon.src = WEATHER_ICONS.day[currentConditionText];
-        } else {
-            conditionIcon.src = WEATHER_ICONS.night[currentConditionText];
-        }
-
-        conditionIcon.onload = function () {
-            resolve();
-        };
-    });
 }
 
 async function renderSecondaryStats(weatherData: WeatherData) {

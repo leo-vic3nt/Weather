@@ -1,0 +1,19 @@
+[class^="hours__"] {
+    width: fit-content;
+    display: grid;
+    justify-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs);
+
+    .current-time {
+        font-weight: var(--fw-bold);
+    }
+
+    .temperature {
+        font-weight: var(--fw-regular);
+    }
+
+    .weather-icon {
+        width: 50px;
+    }
+}

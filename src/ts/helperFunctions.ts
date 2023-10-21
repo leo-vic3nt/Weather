@@ -1,7 +1,17 @@
+import { WEATHER_ICONS } from "../ts/imagesMapping";
 import { BACKGROUND_IMGS } from "./imagesMapping";
 import { WeatherData } from "./weatherApiInterfaces";
 
-export { requestGeolocation, sleep, sanitizeInputString, renderBackgroundImage, removeLoading, fadeOut, fadeIn };
+export {
+    requestGeolocation,
+    sleep,
+    sanitizeInputString,
+    renderBackgroundImage,
+    removeLoading,
+    loadIcon,
+    fadeOut,
+    fadeIn,
+};
 
 function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
     return new Promise((resolve, reject) => {
@@ -55,6 +65,23 @@ function loadBackgroundImage(apiResponse: WeatherData): Promise<HTMLImageElement
 
         img.onload = function () {
             resolve(img);
+        };
+    });
+}
+
+function loadIcon(weatherData: WeatherData): Promise<void> {
+    return new Promise((resolve) => {
+        const currentConditionText = weatherData.current.condition.text;
+        const conditionIcon = document.querySelector(".hero-section__condition-icon") as HTMLImageElement;
+
+        if (weatherData.current.is_day) {
+            conditionIcon.src = WEATHER_ICONS.day[currentConditionText];
+        } else {
+            conditionIcon.src = WEATHER_ICONS.night[currentConditionText];
+        }
+
+        conditionIcon.onload = function () {
+            resolve();
         };
     });
 }
