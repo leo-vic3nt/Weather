@@ -74,15 +74,14 @@ function loadBackgroundImage(apiResponse: WeatherData): Promise<HTMLImageElement
     });
 }
 
-function loadIcon(weatherData: WeatherData): Promise<void> {
+function loadIcon(condition: string, isDay: number): Promise<void> {
     return new Promise((resolve) => {
-        const currentConditionText = weatherData.current.condition.text;
         const conditionIcon = document.querySelector(".hero-section__condition-icon") as HTMLImageElement;
 
-        if (weatherData.current.is_day) {
-            conditionIcon.src = WEATHER_ICONS.day[currentConditionText];
+        if (isDay) {
+            conditionIcon.src = WEATHER_ICONS.day[condition];
         } else {
-            conditionIcon.src = WEATHER_ICONS.night[currentConditionText];
+            conditionIcon.src = WEATHER_ICONS.night[condition];
         }
 
         conditionIcon.onload = function () {

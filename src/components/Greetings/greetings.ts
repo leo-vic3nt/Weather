@@ -9,8 +9,8 @@ function renderGreetings(weatherData: WeatherData) {
     const locationName = weatherData.location.name;
     const countryName = weatherData.location.country;
 
-    locationElement.textContent = ` at ${locationName}, ${countryName}`;
     renderCurentDay(currentDay);
+    locationElement.textContent = ` at ${locationName}, ${countryName}`;
 
     // Remove some unecessary verbosity from api response
     const currentCondition = weatherData.current.condition.text

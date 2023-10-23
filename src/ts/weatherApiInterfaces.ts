@@ -54,6 +54,8 @@ interface Hour {
     chance_of_rain: number;
     chance_of_snow: number;
     gust_kph: number;
+    is_day : number;
+    uv : number;
 }
 
 interface Astro {
