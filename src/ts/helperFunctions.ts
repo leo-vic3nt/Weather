@@ -4,6 +4,7 @@ import { WeatherData } from "./weatherApiInterfaces";
 
 export {
     requestGeolocation,
+    stringToDateObject,
     sleep,
     sanitizeInputString,
     renderBackgroundImage,
@@ -17,6 +18,10 @@ function requestGeolocation(): Promise<GeolocationPosition | GeolocationPosition
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true });
     });
+}
+
+function stringToDateObject(dateString: string): Date {
+    return new Date(dateString);
 }
 
 function sleep(delay: number): Promise<void> {

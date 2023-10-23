@@ -1,12 +1,7 @@
+import { stringToDateObject } from "../../ts/helperFunctions";
 import { WeatherData } from "../../ts/weatherApiInterfaces";
 
 export { displayDateTime };
-
-function getLocalTimeDateObj(apiResponse: WeatherData): Date {
-    // Api response localtime property format: "YYYY-MM-DD HH:MM"
-    const dateResponse = apiResponse.location.localtime;
-    return new Date(dateResponse);
-}
 
 function formatDate(date: Date): string {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -41,7 +36,7 @@ function renderTime(time: string): void {
 }
 
 function displayDateTime(apiResponse: WeatherData): void {
-    const date = getLocalTimeDateObj(apiResponse);
+    const date = stringToDateObject(apiResponse.location.localtime);
 
     renderDate(formatDate(date));
     renderTime(formatTime(date));
