@@ -1,6 +1,6 @@
 import { displayDateTime } from "./components/CurrentDate/currentDate";
 import { renderGreetings } from "./components/Greetings/greetings";
-import { renderHeroSection } from "./components/HeroSection/heroSection";
+import { heroSectionFirstRender } from "./components/HeroSection/heroSection";
 import { innitLocationSearch as innitSearch } from "./components/SearchBar/searchBar";
 import { renderBackgroundImage, removeLoading } from "./ts/helperFunctions";
 import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./ts/weatherApiFunctions";
@@ -12,7 +12,7 @@ export let currentDay = 0;
 // Exported to be used on the search event listener
 export async function renderPage(data: WeatherData): Promise<void> {
     await renderBackgroundImage(data);
-    await renderHeroSection(data);
+    await heroSectionFirstRender(data);
     renderGreetings(data);
     displayDateTime(data);
     innitSearch();

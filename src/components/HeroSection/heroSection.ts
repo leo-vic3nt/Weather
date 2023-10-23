@@ -1,17 +1,20 @@
-import { WeatherData } from "../../ts/weatherApiInterfaces";
+import { Forecast, WeatherData } from "../../ts/weatherApiInterfaces";
 import { loadIcon } from "../../ts/helperFunctions";
+import { currentDay } from "../../main";
 
-export { renderHeroSection, loadIcon };
+export { heroSectionFirstRender };
 
-function renderTemperature(weatherData: WeatherData) {
+function renderTemperature(value: number): void {
     const temperature = document.querySelector(".hero-section__temperature-value") as HTMLParagraphElement;
-    temperature.textContent = `${weatherData.current.temp_c.toFixed(0)}`;
+    temperature.textContent = `${value.toFixed(0)}`;
+}
 
+function renderMinMaxTemperature(forecast: Forecast, forecastDayIndex: number) {
     const maxTemperature = document.querySelector(".hero-section__max-temperature") as HTMLParagraphElement;
-    maxTemperature.textContent = `${weatherData.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}º`;
+    maxTemperature.textContent = `${forecast.forecastday[forecastDayIndex].day.maxtemp_c.toFixed(0)}º`;
 
     const minTemperature = document.querySelector(".hero-section__min-temperature") as HTMLParagraphElement;
-    minTemperature.textContent = `${weatherData.forecast.forecastday[0].day.mintemp_c.toFixed(0)}º`;
+    minTemperature.textContent = `${forecast.forecastday[forecastDayIndex].day.mintemp_c.toFixed(0)}º`;
 }
 
 async function renderSecondaryStats(weatherData: WeatherData) {
@@ -31,7 +34,10 @@ async function renderSecondaryStats(weatherData: WeatherData) {
     uvIndexText.textContent = `${weatherData.current.uv}.0`;
 }
 
-async function renderHeroSection(weatherData: WeatherData) {
-    renderTemperature(weatherData);
+async function heroSectionFirstRender(weatherData: WeatherData) {
+    const currentTemperature = weatherData.current.temp_c;
+    const forecast = weatherData.forecast;
+    renderTemperature(currentTemperature);
+    renderMinMaxTemperature(forecast, currentDay);
     await renderSecondaryStats(weatherData);
 }
