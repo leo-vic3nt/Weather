@@ -7,8 +7,7 @@ import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./ts/we
 import { WeatherData } from "./ts/weatherApiInterfaces";
 
 export let currentWeatherData: WeatherData;
-
-innitSearch();
+export let currentDay = 0;
 
 // Exported to be used on the search event listener
 export async function renderPage(data: WeatherData): Promise<void> {
@@ -16,6 +15,7 @@ export async function renderPage(data: WeatherData): Promise<void> {
     await renderHeroSection(data);
     renderGreetings(data);
     displayDateTime(data);
+    innitSearch();
     removeLoading();
 }
 
