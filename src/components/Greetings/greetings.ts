@@ -7,8 +7,9 @@ function renderGreetings(weatherData: WeatherData) {
     const title = document.querySelector(".greetings__title") as HTMLHeadingElement;
     const locationElement = document.querySelector(".greetings__location") as HTMLSpanElement;
     const locationName = weatherData.location.name;
+    const countryName = weatherData.location.country;
 
-    locationElement.textContent = ` at ${locationName}`;
+    locationElement.textContent = ` at ${locationName}, ${countryName}`;
     renderCurentDay(currentDay);
 
     // Remove some unecessary verbosity from api response
