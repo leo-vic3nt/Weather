@@ -1,6 +1,6 @@
 import { Forecast, WeatherData } from "../../ts/weatherApiInterfaces";
 import { loadIcon } from "../../ts/helperFunctions";
-import { currentDay } from "../../main";
+import { dayController } from "../../ts/currentDayController";
 
 export { heroSectionFirstRender, renderDayMinMaxTemperature, renderSecondaryStats };
 
@@ -57,6 +57,6 @@ async function heroSectionFirstRender(weatherData: WeatherData) {
     const currentTemperature = weatherData.current.temp_c;
     const forecast = weatherData.forecast;
     renderTemperature(currentTemperature);
-    renderDayMinMaxTemperature(forecast, currentDay);
+    renderDayMinMaxTemperature(forecast, dayController.getCurrentDay());
     await secondaryStatsFirstLoad(weatherData);
 }

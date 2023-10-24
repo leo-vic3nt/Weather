@@ -7,7 +7,6 @@ import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./ts/we
 import { WeatherData } from "./ts/weatherApiInterfaces";
 
 export let currentWeatherData: WeatherData;
-export let currentDay = 0;
 
 // Exported to be used on the search event listener
 export async function renderPage(data: WeatherData): Promise<void> {

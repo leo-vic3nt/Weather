@@ -1,4 +1,4 @@
-import { currentDay } from "../../main";
+import { dayController } from "../../ts/currentDayController";
 import { WeatherData } from "../../ts/weatherApiInterfaces";
 
 export { renderGreetings, renderCurentDay };
@@ -8,6 +8,7 @@ function renderGreetings(weatherData: WeatherData) {
     const locationElement = document.querySelector(".greetings__location") as HTMLSpanElement;
     const locationName = weatherData.location.name;
     const countryName = weatherData.location.country;
+    const currentDay = dayController.getCurrentDay();
 
     renderCurentDay(currentDay);
     locationElement.textContent = ` at ${locationName}, ${countryName}`;
