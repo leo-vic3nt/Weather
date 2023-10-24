@@ -63,14 +63,14 @@ interface Astro {
     sunset: string;
 }
 
-interface Forecastday {
+export interface Forecastday {
     date: string;
     day: Day;
     hour: Hour[];
     astro: Astro;
 }
 
-export interface Forecast {
+interface Forecast {
     forecastday: Forecastday[];
 }
 

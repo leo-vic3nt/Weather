@@ -1,4 +1,4 @@
-import { Forecast, WeatherData } from "../../ts/weatherApiInterfaces";
+import { Forecastday, WeatherData } from "../../ts/weatherApiInterfaces";
 import { loadIcon } from "../../ts/helperFunctions";
 import { dayController } from "../../ts/currentDayController";
 
@@ -14,28 +14,27 @@ function renderTemperature(value: number): void {
     temperature.textContent = `${value.toFixed(0)}`;
 }
 
-function renderDayMinMaxTemperature(forecast: Forecast, forecastDayIndex: number) {
+function renderDayMinMaxTemperature(forecastDay: Forecastday) {
     const maxTemperature = document.querySelector(".hero-section__max-temperature") as HTMLParagraphElement;
-    maxTemperature.textContent = `${forecast.forecastday[forecastDayIndex].day.maxtemp_c.toFixed(0)}º`;
+    maxTemperature.textContent = `${forecastDay.day.maxtemp_c.toFixed(0)}º`;
 
     const minTemperature = document.querySelector(".hero-section__min-temperature") as HTMLParagraphElement;
-    minTemperature.textContent = `${forecast.forecastday[forecastDayIndex].day.mintemp_c.toFixed(0)}º`;
+    minTemperature.textContent = `${forecastDay.day.mintemp_c.toFixed(0)}º`;
 }
 
-async function renderSecondaryStats(forecast: Forecast, forecastDayIndex: number, hour: number) {
-    const condition = forecast.forecastday[forecastDayIndex].hour[hour].condition.text;
-    const isDay = forecast.forecastday[forecastDayIndex].hour[hour].is_day;
-    const forecastData = forecast.forecastday[forecastDayIndex];
+async function renderSecondaryStats(forecastDay: Forecastday, hour: number) {
+    const condition = forecastDay.hour[hour].condition.text;
+    const isDay = forecastDay.hour[hour].is_day;
 
     await loadIcon(condition, isDay);
 
-    humidityText.textContent = `${forecastData.hour[hour].humidity}%`;
+    humidityText.textContent = `${forecastDay.hour[hour].humidity}%`;
 
-    chanceOfRainText.textContent = `${forecastData.day.daily_chance_of_rain}%`;
+    chanceOfRainText.textContent = `${forecastDay.day.daily_chance_of_rain}%`;
 
-    windSpeedText.textContent = `${forecastData.hour[hour].wind_kph}km/h`;
+    windSpeedText.textContent = `${forecastDay.hour[hour].wind_kph}km/h`;
 
-    uvIndexText.textContent = `${forecastData.hour[hour].uv}`;
+    uvIndexText.textContent = `${forecastDay.hour[hour].uv}`;
 }
 
 async function secondaryStatsFirstLoad(weatherData: WeatherData) {
@@ -55,8 +54,8 @@ async function secondaryStatsFirstLoad(weatherData: WeatherData) {
 
 async function heroSectionFirstRender(weatherData: WeatherData) {
     const currentTemperature = weatherData.current.temp_c;
-    const forecast = weatherData.forecast;
+    const forecastDay = weatherData.forecast.forecastday[0];
     renderTemperature(currentTemperature);
-    renderDayMinMaxTemperature(forecast, dayController.getCurrentDay());
+    renderDayMinMaxTemperature(forecastDay);
     await secondaryStatsFirstLoad(weatherData);
 }
