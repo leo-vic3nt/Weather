@@ -3,8 +3,6 @@
 //* response to the respective background/icon
 */
 
-export { WEATHER_ICONS, BACKGROUND_IMGS };
-
 interface WeatherIconsInterface {
     day: { [key: string]: string };
     night: { [key: string]: string };
@@ -17,7 +15,7 @@ interface BackgroundImagesInterface {
     night: { [key: string]: string };
 }
 
-const WEATHER_ICONS: WeatherIconsInterface = {
+export const WEATHER_ICONS: WeatherIconsInterface = {
     day: {
         Sunny: "/icons/Weather-Icons/day/sunny.svg",
         "Partly cloudy": "/icons/Weather-Icons/day/partly-cloudy-day.svg",
@@ -121,7 +119,7 @@ const WEATHER_ICONS: WeatherIconsInterface = {
     },
 };
 
-const BACKGROUND_IMGS: BackgroundImagesInterface = {
+export const BACKGROUND_IMGS: BackgroundImagesInterface = {
     sunrise: "/images/HeroBackgrounds/sunrise.png",
 
     sunset: "/images/HeroBackgrounds/sunset.png",

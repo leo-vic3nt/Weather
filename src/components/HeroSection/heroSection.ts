@@ -1,61 +1,52 @@
-import { Forecastday, WeatherData } from "../../ts/weatherApiInterfaces";
-import { loadIcon } from "../../ts/helperFunctions";
-import { dayController } from "../../ts/currentDayController";
+import { WeatherData } from "../../ts/weatherApiInterfaces";
+import { WEATHER_ICONS } from "../../ts/imagesMapping";
 
-export { heroSectionFirstRender, renderDayMinMaxTemperature, renderSecondaryStats };
-
-const humidityText = document.querySelector(".hero-section__humidity-text") as HTMLParagraphElement;
-const chanceOfRainText = document.querySelector(".hero-section__chance-of-rain-text") as HTMLParagraphElement;
-const windSpeedText = document.querySelector(".hero-section__wind-speed-text") as HTMLParagraphElement;
-const uvIndexText = document.querySelector(".hero-section__uv-index-text") as HTMLParagraphElement;
-
-function renderTemperature(value: number): void {
-    const temperature = document.querySelector(".hero-section__temperature-value") as HTMLParagraphElement;
-    temperature.textContent = `${value.toFixed(0)}`;
+export async function renderHeroSection(weatherData: WeatherData) {
+    renderTemperature(weatherData);
+    await renderSecondaryStats(weatherData);
 }
 
-function renderDayMinMaxTemperature(forecastDay: Forecastday) {
+function renderTemperature(weatherData: WeatherData) {
+    const temperature = document.querySelector(".hero-section__temperature-value") as HTMLParagraphElement;
+    temperature.textContent = `${weatherData.current.temp_c.toFixed(0)}`;
+
     const maxTemperature = document.querySelector(".hero-section__max-temperature") as HTMLParagraphElement;
-    maxTemperature.textContent = `${forecastDay.day.maxtemp_c.toFixed(0)}º`;
+    maxTemperature.textContent = `${weatherData.forecast.forecastday[0].day.maxtemp_c.toFixed(0)}º`;
 
     const minTemperature = document.querySelector(".hero-section__min-temperature") as HTMLParagraphElement;
-    minTemperature.textContent = `${forecastDay.day.mintemp_c.toFixed(0)}º`;
+    minTemperature.textContent = `${weatherData.forecast.forecastday[0].day.mintemp_c.toFixed(0)}º`;
 }
 
-async function renderSecondaryStats(forecastDay: Forecastday, hour: number) {
-    const condition = forecastDay.hour[hour].condition.text;
-    const isDay = forecastDay.hour[hour].is_day;
+function loadIcon(weatherData: WeatherData): Promise<void> {
+    return new Promise((resolve) => {
+        const currentConditionText = weatherData.current.condition.text;
+        const conditionIcon = document.querySelector(".hero-section__condition-icon") as HTMLImageElement;
 
-    await loadIcon(condition, isDay);
+        if (weatherData.current.is_day) {
+            conditionIcon.src = WEATHER_ICONS.day[currentConditionText];
+        } else {
+            conditionIcon.src = WEATHER_ICONS.night[currentConditionText];
+        }
 
-    humidityText.textContent = `${forecastDay.hour[hour].humidity}%`;
-
-    chanceOfRainText.textContent = `${forecastDay.day.daily_chance_of_rain}%`;
-
-    windSpeedText.textContent = `${forecastDay.hour[hour].wind_kph}km/h`;
-
-    uvIndexText.textContent = `${forecastDay.hour[hour].uv}`;
+        conditionIcon.onload = function () {
+            resolve();
+        };
+    });
 }
 
-async function secondaryStatsFirstLoad(weatherData: WeatherData) {
-    const condition = weatherData.current.condition.text;
-    const isDay = weatherData.current.is_day;
-    await loadIcon(condition, isDay);
+async function renderSecondaryStats(weatherData: WeatherData) {
+    await loadIcon(weatherData);
 
+    const humidityText = document.querySelector(".hero-section__humidity-text") as HTMLParagraphElement;
     humidityText.textContent = `${weatherData.current.humidity}%`;
 
+    const chanceOfRainText = document.querySelector(".hero-section__chance-of-rain-text") as HTMLParagraphElement;
     // foracastday[0] means today
     chanceOfRainText.textContent = `${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}%`;
 
+    const windSpeedText = document.querySelector(".hero-section__wind-speed-text") as HTMLParagraphElement;
     windSpeedText.textContent = `${weatherData.current.wind_kph.toFixed(0)}  km/h`;
 
+    const uvIndexText = document.querySelector(".hero-section__uv-index-text") as HTMLParagraphElement;
     uvIndexText.textContent = `${weatherData.current.uv}.0`;
-}
-
-async function heroSectionFirstRender(weatherData: WeatherData) {
-    const currentTemperature = weatherData.current.temp_c;
-    const forecastDay = weatherData.forecast.forecastday[0];
-    renderTemperature(currentTemperature);
-    renderDayMinMaxTemperature(forecastDay);
-    await secondaryStatsFirstLoad(weatherData);
 }

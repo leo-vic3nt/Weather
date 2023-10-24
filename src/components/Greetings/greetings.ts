@@ -1,17 +1,11 @@
-import { dayController } from "../../ts/currentDayController";
 import { WeatherData } from "../../ts/weatherApiInterfaces";
 
-export { renderGreetings, renderCurentDay };
-
-function renderGreetings(weatherData: WeatherData) {
+export function renderGreetings(weatherData: WeatherData) {
+    const subtitle = document.querySelector(".greetings__subtitle") as HTMLHeadingElement;
     const title = document.querySelector(".greetings__title") as HTMLHeadingElement;
-    const locationElement = document.querySelector(".greetings__location") as HTMLSpanElement;
-    const locationName = weatherData.location.name;
-    const countryName = weatherData.location.country;
-    const currentDay = dayController.getCurrentDay();
 
-    renderCurentDay(currentDay);
-    locationElement.textContent = ` at ${locationName}, ${countryName}`;
+    const locationName = weatherData.location.name;
+    subtitle.textContent = `Today in ${locationName}`;
 
     // Remove some unecessary verbosity from api response
     const currentCondition = weatherData.current.condition.text
@@ -19,10 +13,4 @@ function renderGreetings(weatherData: WeatherData) {
         .trim();
 
     title.textContent = currentCondition;
-}
-
-function renderCurentDay(day: number) {
-    const possibleDays = ["Today", "Tomorrow", "After Tomorrow"];
-    const currentDayElement = document.querySelector(".greetings__current-day") as HTMLSpanElement;
-    currentDayElement.textContent = possibleDays[day];
 }

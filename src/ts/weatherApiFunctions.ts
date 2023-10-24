@@ -2,12 +2,10 @@ import { WeatherData, ApiError } from "./weatherApiInterfaces";
 import { ApiInternalError, GenericError, GeolocationRequestError, LocationNotFound } from "./errorFunctions";
 import { requestGeolocation, sleep } from "./helperFunctions";
 
-export { getWeatherData, getWeatherByIp, getWeatherByGeolocation };
-
 const KEY = "fdc857fd0eaa40b6a1925541230509";
 const API_URL = "https://api.weatherapi.com/v1/forecast.json";
 
-async function getWeatherData(location: string): Promise<WeatherData> {
+export async function getWeatherData(location: string): Promise<WeatherData> {
     const MAX_TRIES = 3;
     for (let i = 0; i < MAX_TRIES; i++) {
         try {
@@ -40,11 +38,11 @@ async function getWeatherData(location: string): Promise<WeatherData> {
     throw new GenericError();
 }
 
-async function getWeatherByIp(): Promise<WeatherData> {
+export async function getWeatherByIp(): Promise<WeatherData> {
     return await getWeatherData("auto:ip");
 }
 
-async function getWeatherByGeolocation(): Promise<WeatherData> {
+export async function getWeatherByGeolocation(): Promise<WeatherData> {
     try {
         /* I can safely cast the type to GeolocationPosition since any GeolocationPositionError
         would throw */

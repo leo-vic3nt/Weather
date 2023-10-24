@@ -1,6 +1,4 @@
-export { LocationNotFound, ApiInternalError, GenericError, GeolocationRequestError };
-
-class LocationNotFound extends Error {
+export class LocationNotFound extends Error {
     constructor(location: string) {
         super(`
             The location ${location} was not found.
@@ -8,19 +6,19 @@ class LocationNotFound extends Error {
     }
 }
 
-class ApiInternalError extends Error {
+export class ApiInternalError extends Error {
     constructor() {
         super("Internal Error");
     }
 }
 
-class GenericError extends Error {
+export class GenericError extends Error {
     constructor() {
         super("Something went wrong... Please try again later");
     }
 }
 
-class GeolocationRequestError extends Error {
+export class GeolocationRequestError extends Error {
     constructor(geolocationError: GeolocationPositionError) {
         super(`Geolocation error: ${geolocationError.message}`);
     }

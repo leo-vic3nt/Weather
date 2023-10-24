@@ -1,36 +1,19 @@
-import { WEATHER_ICONS } from "../ts/imagesMapping";
 import { BACKGROUND_IMGS } from "./imagesMapping";
 import { WeatherData } from "./weatherApiInterfaces";
 
-export {
-    requestGeolocation,
-    stringToDateObject,
-    sleep,
-    sanitizeInputString,
-    renderBackgroundImage,
-    removeLoading,
-    loadIcon,
-    fadeOut,
-    fadeIn,
-};
-
-function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
+export function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true });
     });
 }
 
-function stringToDateObject(dateString: string): Date {
-    return new Date(dateString);
-}
-
-function sleep(delay: number): Promise<void> {
+export function sleep(delay: number): Promise<void> {
     return new Promise((resolve) => {
         setTimeout(resolve, delay);
     });
 }
 
-function sanitizeInputString(string: string): string {
+export function sanitizeInputString(string: string): string {
     // Normalize the Unicode format
     const normalizedString = string.normalize("NFD");
     /*
@@ -74,23 +57,7 @@ function loadBackgroundImage(apiResponse: WeatherData): Promise<HTMLImageElement
     });
 }
 
-function loadIcon(condition: string, isDay: number): Promise<void> {
-    return new Promise((resolve) => {
-        const conditionIcon = document.querySelector(".hero-section__condition-icon") as HTMLImageElement;
-
-        if (isDay) {
-            conditionIcon.src = WEATHER_ICONS.day[condition];
-        } else {
-            conditionIcon.src = WEATHER_ICONS.night[condition];
-        }
-
-        conditionIcon.onload = function () {
-            resolve();
-        };
-    });
-}
-
-async function renderBackgroundImage(apiResponse: WeatherData): Promise<void> {
+export async function renderBackgroundImage(apiResponse: WeatherData): Promise<void> {
     const backgroundImg = await loadBackgroundImage(apiResponse);
     const body = document.querySelector("body") as HTMLElement;
     // greadientFilter creates a black tint over the background image for better readability
@@ -100,7 +67,7 @@ async function renderBackgroundImage(apiResponse: WeatherData): Promise<void> {
 }
 
 // This feels like a hack. Implement 1s delay for better experience
-function removeLoading(): void {
+export function removeLoading(): void {
     const loading = document.getElementById("loading") as HTMLDivElement;
     setTimeout(() => {
         loading.style.opacity = "0";
@@ -110,12 +77,12 @@ function removeLoading(): void {
     }, 1000);
 }
 
-function fadeOut(): void {
+export function fadeOut(): void {
     const main = document.querySelector("main") as HTMLElement;
     main.classList.add("fade-out");
 }
 
-function fadeIn(): void {
+export function fadeIn(): void {
     const main = document.querySelector("main") as HTMLElement;
     main.classList.remove("fade-out");
 }

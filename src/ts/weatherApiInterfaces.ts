@@ -1,5 +1,3 @@
-export type { WeatherData, ApiError };
-
 interface Location {
     name: string;
     region: string;
@@ -54,8 +52,6 @@ interface Hour {
     chance_of_rain: number;
     chance_of_snow: number;
     gust_kph: number;
-    is_day : number;
-    uv : number;
 }
 
 interface Astro {
@@ -63,7 +59,7 @@ interface Astro {
     sunset: string;
 }
 
-export interface Forecastday {
+interface Forecastday {
     date: string;
     day: Day;
     hour: Hour[];
@@ -74,13 +70,13 @@ interface Forecast {
     forecastday: Forecastday[];
 }
 
-interface WeatherData {
+export interface WeatherData {
     location: Location;
     current: Current;
     forecast: Forecast;
 }
 
-interface ApiError {
+export interface ApiError {
     error: {
         code: number;
         message: string;

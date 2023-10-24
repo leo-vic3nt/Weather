@@ -10,11 +10,6 @@
         <link rel="stylesheet" href="./src/styles/main.scss" />
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Outfit:wght@100;400;700&display=swap"
-            rel="stylesheet" />
         <title>Weather</title>
     </head>
 
@@ -76,10 +71,7 @@
                 </div>
 
                 <div class="greetings">
-                    <div class="greetings__subtitle">
-                        <span class="greetings__current-day"></span>
-                        <span class="greetings__location"></span>
-                    </div>
+                    <h4 class="greetings__subtitle"></h4>
                     <h2 class="greetings__title"></h2>
                 </div>
 
@@ -150,44 +142,13 @@
                         </div>
                     </div>
                 </div>
-            </main>
 
-            <div class="day-picker">
-                <div class="day-picker__left" title="Previous day">
-                    <svg width="80px" height="80px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M14.9991 19L9.83911 14C9.56672 13.7429 9.34974 13.433 9.20142 13.0891C9.0531 12.7452 8.97656 12.3745 8.97656 12C8.97656 11.6255 9.0531 11.2548 9.20142 10.9109C9.34974 10.567 9.56672 10.2571 9.83911 10L14.9991 5"
-                                stroke="#fff"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                </div>
-                <div class="day-picker__right" title="Next day">
-                    <svg
-                        width="80px"
-                        height="80px"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        transform="matrix(-1, 0, 0, 1, 0, 0)">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M14.9991 19L9.83911 14C9.56672 13.7429 9.34974 13.433 9.20142 13.0891C9.0531 12.7452 8.97656 12.3745 8.97656 12C8.97656 11.6255 9.0531 11.2548 9.20142 10.9109C9.34974 10.567 9.56672 10.2571 9.83911 10L14.9991 5"
-                                stroke="#fff"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"></path>
-                        </g>
-                    </svg>
-                </div>
-            </div>
+                <footer>
+                    <div class="hours">
+                        
+                    </div>
+                </footer>
+            </main>
 
             <div id="loading">
                 <div class="preloader" style="opacity: 1">
