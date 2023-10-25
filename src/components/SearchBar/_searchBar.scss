@@ -70,12 +70,3 @@ element absolute positiotning
     }
 }
 
-.error {
-    align-self: center;
-    color: #ff0000;
-    font-weight: var(--fw-semi-bold);
-
-    @media (max-width: 800px) {
-        align-self: flex-end;
-    }
-}

@@ -27,6 +27,7 @@ getWeatherByIp()
     })
     .catch((err) => {
         console.error(err);
+
         getWeatherData("Fortaleza")
             .then((data) => {
                 currentWeatherData = data;

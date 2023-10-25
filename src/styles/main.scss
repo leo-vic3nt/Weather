@@ -1,6 +1,7 @@
 @use "./variables";
 @use "./loading.scss";
 @use "./error-page.scss";
+@use "./error-message.scss";
 @use "../components/CurrentDate/currentDate";
 @use "../components/Greetings/greetings";
 @use "../components/SearchBar/searchBar";
