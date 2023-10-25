@@ -1,17 +1,7 @@
 import { BACKGROUND_IMGS } from "./imagesMapping";
 import { WeatherData } from "./weatherApiInterfaces";
 
-export {
-    requestGeolocation,
-    sleep,
-    sanitizeInputString,
-    renderBackgroundImage,
-    removeLoading,
-    fadeOut,
-    fadeIn,
-    renderErrorMessage,
-    clearErrorMessage
-};
+export { requestGeolocation, sleep, sanitizeInputString, renderBackgroundImage, removeLoading, fadeOut, fadeIn };
 
 function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
     return new Promise((resolve, reject) => {
