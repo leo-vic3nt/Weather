@@ -1,6 +1,8 @@
 import { WeatherData } from "../../ts/weatherApiInterfaces";
 
-export function renderGreetings(weatherData: WeatherData) {
+export { renderGreetings }
+
+function renderGreetings(weatherData: WeatherData) {
     const subtitle = document.querySelector(".greetings__subtitle") as HTMLHeadingElement;
     const title = document.querySelector(".greetings__title") as HTMLHeadingElement;
 

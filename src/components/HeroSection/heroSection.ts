@@ -1,10 +1,7 @@
 import { WeatherData } from "../../ts/weatherApiInterfaces";
 import { WEATHER_ICONS } from "../../ts/imagesMapping";
 
-export async function renderHeroSection(weatherData: WeatherData) {
-    renderTemperature(weatherData);
-    await renderSecondaryStats(weatherData);
-}
+export { renderHeroSection };
 
 function renderTemperature(weatherData: WeatherData) {
     const temperature = document.querySelector(".hero-section__temperature-value") as HTMLParagraphElement;
@@ -49,4 +46,9 @@ async function renderSecondaryStats(weatherData: WeatherData) {
 
     const uvIndexText = document.querySelector(".hero-section__uv-index-text") as HTMLParagraphElement;
     uvIndexText.textContent = `${weatherData.current.uv}.0`;
+}
+
+async function renderHeroSection(weatherData: WeatherData) {
+    renderTemperature(weatherData);
+    await renderSecondaryStats(weatherData);
 }

@@ -66,7 +66,7 @@ interface Forecastday {
     astro: Astro;
 }
 
-interface Forecast {
+export interface Forecast {
     forecastday: Forecastday[];
 }
 

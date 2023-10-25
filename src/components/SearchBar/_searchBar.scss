@@ -5,9 +5,13 @@ element absolute positiotning
 .search-container {
     position: absolute;
     right: var(--spacing-xxl);
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 
-    @media (max-width : 800px){
-        top : 70px;
+    @media (max-width: 800px) {
+        top: 70px;
     }
 }
 
@@ -63,5 +67,15 @@ element absolute positiotning
         border-radius: 0px;
         background-color: transparent;
         border-bottom: 1px solid #fff;
+    }
+}
+
+.error {
+    align-self: center;
+    color: #ff0000;
+    font-weight: var(--fw-semi-bold);
+
+    @media (max-width: 800px) {
+        align-self: flex-end;
     }
 }
