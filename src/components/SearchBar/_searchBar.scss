@@ -11,7 +11,7 @@ element absolute positiotning
     align-items: flex-end;
 
     @media (max-width: 850px) {
-        top: 70px;
+        top: 45px;
     }
 
     @media (max-width: 700px) {
@@ -57,6 +57,10 @@ element absolute positiotning
         width: 50px;
         height: 50px;
 
+        @media (max-width: 500px) {
+            width: 40px;
+        }
+
         outline: none;
         border-style: none;
         pointer-events: painted;
@@ -70,8 +74,8 @@ element absolute positiotning
         box-shadow: none;
         width: 250px;
 
-        @media (max-width: 450px) {
-            width: 180px;
+        @media (max-width: 500px) {
+            width: 150px;
         }
 
         border-radius: 0px;
