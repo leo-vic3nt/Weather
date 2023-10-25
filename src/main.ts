@@ -2,7 +2,7 @@ import { displayDateTime } from "./components/CurrentDate/currentDate";
 import { renderGreetings } from "./components/Greetings/greetings";
 import { renderHeroSection } from "./components/HeroSection/heroSection";
 import { innitLocationSearch as innitSearch } from "./components/SearchBar/searchBar";
-import { renderBackgroundImage, removeLoading } from "./ts/helperFunctions";
+import { renderBackgroundImage, removeLoading, displayErrorPage } from "./ts/helperFunctions";
 import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./ts/weatherApiFunctions";
 import { WeatherData } from "./ts/weatherApiInterfaces";
 
@@ -27,10 +27,16 @@ getWeatherByIp()
     })
     .catch((err) => {
         console.error(err);
-        getWeatherData("Fortaleza").then((data) => {
-            currentWeatherData = data;
-            renderPage(data);
-        });
+        getWeatherData("Fortaleza")
+            .then((data) => {
+                currentWeatherData = data;
+                renderPage(data);
+            })
+            .catch((err) => {
+                console.error(err);
+                removeLoading();
+                displayErrorPage();
+            });
     });
 
 getWeatherByGeolocation()

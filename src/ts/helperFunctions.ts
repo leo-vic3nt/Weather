@@ -1,7 +1,16 @@
 import { BACKGROUND_IMGS } from "./imagesMapping";
 import { WeatherData } from "./weatherApiInterfaces";
 
-export { requestGeolocation, sleep, sanitizeInputString, renderBackgroundImage, removeLoading, fadeOut, fadeIn };
+export {
+    requestGeolocation,
+    sleep,
+    sanitizeInputString,
+    renderBackgroundImage,
+    removeLoading,
+    fadeOut,
+    fadeIn,
+    displayErrorPage,
+};
 
 function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
     return new Promise((resolve, reject) => {
@@ -87,4 +96,9 @@ function fadeOut(): void {
 function fadeIn(): void {
     const main = document.querySelector("main") as HTMLElement;
     main.classList.remove("fade-out");
+}
+
+function displayErrorPage(): void {
+    const errorPage = document.getElementById("error-page") as HTMLDivElement;
+    errorPage.style.display = "flex";
 }
