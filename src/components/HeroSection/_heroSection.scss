@@ -39,6 +39,12 @@
                     width: 100px;
                 }
             }
+
+            .hero-section__temperature-icon{
+                @media (max-width: 500px) {
+                    width: 70px;
+                }
+            }
         }
 
         .hero-section__min-max-container {

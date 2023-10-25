@@ -10,6 +10,8 @@ export {
     fadeOut,
     fadeIn,
     displayErrorPage,
+    displayErrorMessage,
+    removeErrorMessage,
 };
 
 function requestGeolocation(): Promise<GeolocationPosition | GeolocationPositionError> {
@@ -101,4 +103,14 @@ function fadeIn(): void {
 function displayErrorPage(): void {
     const errorPage = document.getElementById("error-page") as HTMLDivElement;
     errorPage.style.display = "flex";
+}
+
+function displayErrorMessage(error: Error): void {
+    const errorMessage = document.querySelector(".error-message") as HTMLDivElement;
+    errorMessage.textContent = error.message;
+}
+
+function removeErrorMessage(): void {
+    const errorMessage = document.querySelector(".error-message") as HTMLDivElement;
+    errorMessage.textContent = "";
 }

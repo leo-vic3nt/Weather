@@ -5,13 +5,17 @@ element absolute positiotning
 .search-container {
     position: absolute;
     right: var(--spacing-xxl);
-    width: 250px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
         top: 70px;
+    }
+
+    @media (max-width: 700px) {
+        right: var(--spacing-sm);
     }
 }
 
@@ -52,6 +56,7 @@ element absolute positiotning
         cursor: pointer;
         width: 50px;
         height: 50px;
+
         outline: none;
         border-style: none;
         pointer-events: painted;
@@ -64,9 +69,13 @@ element absolute positiotning
     .search__input:hover {
         box-shadow: none;
         width: 250px;
+
+        @media (max-width: 450px) {
+            width: 180px;
+        }
+
         border-radius: 0px;
         background-color: transparent;
         border-bottom: 1px solid #fff;
     }
 }
-

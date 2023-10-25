@@ -1,4 +1,10 @@
-import { fadeIn, fadeOut, sanitizeInputString } from "../../ts/helperFunctions";
+import {
+    displayErrorMessage,
+    fadeIn,
+    fadeOut,
+    removeErrorMessage,
+    sanitizeInputString,
+} from "../../ts/helperFunctions";
 import { renderPage } from "../../main";
 import { getWeatherData } from "../../ts/weatherApiFunctions";
 
@@ -13,14 +19,18 @@ function checkErrorPatterMissmatch() {
 
 function handleFormSubmit(submitEvent: SubmitEvent): void {
     submitEvent.preventDefault();
-    fadeOut();
     const sanitizedString = sanitizeInputString(locationInput.value);
 
-    getWeatherData(sanitizedString).then((data) => {
-        renderPage(data).then(() => fadeIn());
-    });
-
-    locationInput.value = "";
+    getWeatherData(sanitizedString)
+        .then((data) => {
+            fadeOut();
+            removeErrorMessage();
+            renderPage(data).then(() => fadeIn());
+            locationInput.value = "";
+        })
+        .catch((err) => {
+            displayErrorMessage(err);
+        });
 }
 
 export function innitLocationSearch(): void {
