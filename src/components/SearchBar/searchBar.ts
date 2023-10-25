@@ -29,6 +29,7 @@ function handleFormSubmit(submitEvent: SubmitEvent): void {
             locationInput.value = "";
         })
         .catch((err) => {
+            console.error(err);
             displayErrorMessage(err);
         });
 }

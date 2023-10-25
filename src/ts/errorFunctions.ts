@@ -1,7 +1,7 @@
 export class LocationNotFound extends Error {
     constructor(location: string) {
         super(`
-            The location ${location} was not found.
+            The location ${location} was not found
         `);
     }
 }
