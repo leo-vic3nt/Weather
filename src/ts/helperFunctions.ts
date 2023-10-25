@@ -39,6 +39,10 @@ function loadBackgroundImage(apiResponse: WeatherData): Promise<HTMLImageElement
 
         const img = new Image();
 
+        img.onload = function () {
+            resolve(img);
+        };
+
         if (isDay) {
             if (currentTimeHours === sunriseTime) {
                 img.src = BACKGROUND_IMGS.sunrise;
@@ -50,10 +54,6 @@ function loadBackgroundImage(apiResponse: WeatherData): Promise<HTMLImageElement
         } else {
             img.src = BACKGROUND_IMGS.night[currentCondition];
         }
-
-        img.onload = function () {
-            resolve(img);
-        };
     });
 }
 

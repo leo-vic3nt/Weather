@@ -5,7 +5,8 @@ export function renderGreetings(weatherData: WeatherData) {
     const title = document.querySelector(".greetings__title") as HTMLHeadingElement;
 
     const locationName = weatherData.location.name;
-    subtitle.textContent = `Today in ${locationName}`;
+    const country = weatherData.location.country;
+    subtitle.textContent = `Today in ${locationName}, ${country}`;
 
     // Remove some unecessary verbosity from api response
     const currentCondition = weatherData.current.condition.text

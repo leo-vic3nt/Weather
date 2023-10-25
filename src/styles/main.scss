@@ -4,7 +4,8 @@
 @use "../components/Greetings/greetings";
 @use "../components/SearchBar/searchBar";
 @use "../components/HeroSection/heroSection";
-@use "../components/HoursStats/hoursStats";
+@use "../components/HoursForecast/hoursForecast";
+@use "../components/DaysForecast/daysForecast";
 
 :root {
     font-size: var(--base-font-size);
