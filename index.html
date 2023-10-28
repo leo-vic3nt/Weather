@@ -16,12 +16,10 @@
     <body>
         <div id="app" class="container">
             <main>
-                <header>
-                    <div class="date">
-                        <p class="date__time"></p>
-                        <p class="date__formatted"></p>
-                    </div>
-                </header>
+                <div class="date">
+                    <p class="date__time"></p>
+                    <p class="date__formatted"></p>
+                </div>
 
                 <div class="search-container">
                     <form class="search">
@@ -145,10 +143,14 @@
                     </div>
                 </div>
 
-                <footer>
-                    <div class="days-forecast"></div>
-                    <div class="hours-forecast"></div>
-                </footer>
+                <div class="forecast">
+                    <div class="forecast__picker">
+                        <button class="picker__days">Daily</button>
+                        <button class="picker__hours">Hourly</button>
+                    </div>
+                    <div class="forecast__days"></div>
+                    <div class="forecast__hours"></div>
+                </div>
             </main>
 
             <div id="loading">
