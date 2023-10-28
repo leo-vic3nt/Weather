@@ -89,7 +89,7 @@
         .stats-container {
             display: flex;
             flex-direction: column;
-            gap: var(--spacing-sm);
+            gap: 12px;
 
             @media (min-width: 1400px) {
                 img {
