@@ -1,9 +1,63 @@
+.forecast {
 
-.forecast__picker {
-    button {
-        width: 80px;
-        background: transparent;
-        color: var(--full-white);
-        border: 1px solid var(--full-white);
+    display: grid;
+    gap: 10px;
+
+    .forecast__picker {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-xxs);
+
+        &--active {
+            border: 2px solid var(--full-white) !important;
+        }
+
+        button {
+            width: 80px;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            padding-bottom: 2px;
+            color: var(--full-white);
+            padding: 2px 0;
+        }
+    }
+
+    .forecast__days{
+        display: flex;
+        justify-content: center;
+        gap: 100px;
+    }
+
+
+    .forecast__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .day {
+            font-weight: var(--fw-semi-bold);
+        }
+
+        .condition-icon {
+            width: 50px;
+
+            @media (min-width: 1400px) {
+                width: 70px;
+            }
+        }
+
+        .min-max-container {
+            display: flex;
+            gap: var(--spacing-xs);
+
+            .min {
+                color: #ccccff;
+            }
+
+            .max {
+                color: #ffcccc;
+            }
+        }
     }
 }

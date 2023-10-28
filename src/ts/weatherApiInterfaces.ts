@@ -59,8 +59,9 @@ interface Astro {
     sunset: string;
 }
 
-interface Forecastday {
+export interface Forecastday {
     date: string;
+    date_epoch : number;
     day: Day;
     hour: Hour[];
     astro: Astro;

@@ -1,4 +1,5 @@
 import { displayDateTime } from "./components/CurrentDate/currentDate";
+import { populateDaysForecast } from "./components/Forecast/forecast";
 import { renderGreetings } from "./components/Greetings/greetings";
 import { renderHeroSection } from "./components/HeroSection/heroSection";
 import { innitLocationSearch as innitSearch } from "./components/SearchBar/searchBar";
@@ -24,6 +25,7 @@ getWeatherByIp()
     .then((data) => {
         currentWeatherData = data;
         renderPage(data);
+        populateDaysForecast(currentWeatherData.forecast);
     })
     .catch((err) => {
         console.error(err);

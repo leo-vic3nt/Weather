@@ -52,6 +52,7 @@ main {
 main {
     flex: 1;
     padding: var(--spacing-md) var(--spacing-xxl);
+    padding-bottom: 0;
     transition: opacity 0.5s ease-in-out;
 
     @media (max-width: 700px) {
