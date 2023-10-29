@@ -1,4 +1,3 @@
-import { currentWeatherData } from "../../main";
 import { WEATHER_ICONS } from "../../ts/imagesMapping";
 import { Forecast, Forecastday } from "../../ts/weatherApiInterfaces";
 
@@ -16,17 +15,13 @@ function toggleActivePicker(click: MouseEvent): void {
 }
 
 function createDayCard(day: Forecastday) {
-    const timezone = currentWeatherData.location.tz_id;
     const card = document.createElement("div");
     card.classList.add("forecast__card");
 
-    const dateConvertedTimeZone: string = new Date(day.date_epoch * 1000).toLocaleString("en-US", {
-        timeZone: `${timezone}`,
-    });
-    const actualDate = new Date(dateConvertedTimeZone);
+    const date = new Date(day.hour[0].time);
     const currentDay = document.createElement("p");
     currentDay.classList.add("day");
-    currentDay.textContent = days[actualDate.getDay()];
+    currentDay.textContent = days[date.getDay()];
 
     const conditionIcon = new Image();
     conditionIcon.src = WEATHER_ICONS.day[day.day.condition.text];
@@ -36,10 +31,10 @@ function createDayCard(day: Forecastday) {
     minMax.classList.add("min-max-container");
     const max = document.createElement("p");
     max.classList.add("max");
-    max.textContent = `${day.day.maxtemp_c}`;
+    max.textContent = `${day.day.maxtemp_c.toFixed(0)}º`;
     const min = document.createElement("p");
     min.classList.add("min");
-    min.textContent = `${day.day.mintemp_c}`;
+    min.textContent = `${day.day.mintemp_c.toFixed(0)}º`;
     minMax.append(max, min);
 
     card.append(currentDay, conditionIcon, minMax);
@@ -48,10 +43,11 @@ function createDayCard(day: Forecastday) {
 }
 
 export function populateDaysForecast(forecast: Forecast) {
-    const daysForecast = document.querySelector(".forecast__days");
-
-    const tomorrow = createDayCard(forecast.forecastday[2]);
+    const daysForecast = document.querySelector(".forecast__days") as HTMLDivElement;
+    // Clear before repopulating
+    daysForecast.textContent = "";
+    const tomorrow = createDayCard(forecast.forecastday[1]);
     const afterTomorrow = createDayCard(forecast.forecastday[2]);
 
-    daysForecast?.append(tomorrow, afterTomorrow);
+    daysForecast.append(tomorrow, afterTomorrow);
 }

@@ -7,8 +7,6 @@ import { renderBackgroundImage, removeLoading, displayErrorPage } from "./ts/hel
 import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./ts/weatherApiFunctions";
 import { WeatherData } from "./ts/weatherApiInterfaces";
 
-export let currentWeatherData: WeatherData;
-
 innitSearch();
 
 // Exported to be used on the search event listener
@@ -23,17 +21,16 @@ export async function renderPage(data: WeatherData): Promise<void> {
 // TODO Handle error from getWeatherData call
 getWeatherByIp()
     .then((data) => {
-        currentWeatherData = data;
         renderPage(data);
-        populateDaysForecast(currentWeatherData.forecast);
+        populateDaysForecast(data.forecast);
     })
     .catch((err) => {
         console.error(err);
 
         getWeatherData("Fortaleza")
             .then((data) => {
-                currentWeatherData = data;
                 renderPage(data);
+                populateDaysForecast(data.forecast);
             })
             .catch((err) => {
                 console.error(err);
@@ -44,7 +41,7 @@ getWeatherByIp()
 
 getWeatherByGeolocation()
     .then((data) => {
-        currentWeatherData = data;
         renderPage(data);
+        populateDaysForecast(data.forecast);
     })
     .catch((err) => console.error(err));

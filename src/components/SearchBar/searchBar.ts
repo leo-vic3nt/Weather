@@ -7,9 +7,11 @@ import {
 } from "../../ts/helperFunctions";
 import { renderPage } from "../../main";
 import { getWeatherData } from "../../ts/weatherApiFunctions";
+import { populateDaysForecast } from "../Forecast/forecast";
 
 const locationForm = document.querySelector(".search") as HTMLFormElement;
 const locationInput = document.querySelector(".search__input") as HTMLInputElement;
+const daysForecast = document.querySelector(".forecast__days") as HTMLDivElement;
 
 function checkErrorPatterMissmatch() {
     locationInput.validity.patternMismatch
@@ -25,6 +27,8 @@ function handleFormSubmit(submitEvent: SubmitEvent): void {
         .then((data) => {
             fadeOut();
             removeErrorMessage();
+           
+            populateDaysForecast(data.forecast);
             renderPage(data).then(() => fadeIn());
             locationInput.value = "";
         })
