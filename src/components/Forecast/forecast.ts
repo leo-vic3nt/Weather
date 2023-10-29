@@ -16,7 +16,7 @@ function toggleActivePicker(click: MouseEvent): void {
 
 function createDayCard(day: Forecastday) {
     const card = document.createElement("div");
-    card.classList.add("forecast__card");
+    card.classList.add("forecast__card-days");
 
     const date = new Date(day.hour[0].time);
     const currentDay = document.createElement("p");

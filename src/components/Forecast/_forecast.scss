@@ -24,18 +24,21 @@
     }
 
     .forecast__days{
-        display: flex;
+        display:flex;
         justify-content: center;
         gap: 100px;
     }
 
+    .forecast__hours {
 
-    .forecast__card {
+    }
+
+    .forecast__card-days {
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        .day {
+        .day{
             font-weight: var(--fw-semi-bold);
         }
 
@@ -59,5 +62,9 @@
                 color: #ffcccc;
             }
         }
+    }
+
+    .forecast__card-hours{
+
     }
 }
