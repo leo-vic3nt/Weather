@@ -38,7 +38,7 @@ interface Day {
     };
 }
 
-interface Hour {
+export interface Hour {
     time: string;
     temp_c: number;
     condition: {
@@ -52,6 +52,7 @@ interface Hour {
     chance_of_rain: number;
     chance_of_snow: number;
     gust_kph: number;
+    is_day : number;
 }
 
 interface Astro {

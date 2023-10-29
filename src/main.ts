@@ -1,5 +1,4 @@
 import { displayDateTime } from "./components/CurrentDate/currentDate";
-import { populateDaysForecast } from "./components/Forecast/forecast";
 import { renderGreetings } from "./components/Greetings/greetings";
 import { renderHeroSection } from "./components/HeroSection/heroSection";
 import { innitLocationSearch as innitSearch } from "./components/SearchBar/searchBar";
@@ -7,14 +6,13 @@ import { renderBackgroundImage, removeLoading, displayErrorPage } from "./ts/hel
 import { getWeatherByGeolocation, getWeatherByIp, getWeatherData } from "./ts/weatherApiFunctions";
 import { WeatherData } from "./ts/weatherApiInterfaces";
 
-innitSearch();
-
 // Exported to be used on the search event listener
 export async function renderPage(data: WeatherData): Promise<void> {
     await renderBackgroundImage(data);
     await renderHeroSection(data);
     renderGreetings(data);
     displayDateTime(data);
+    innitSearch();
     removeLoading();
 }
 
@@ -22,7 +20,6 @@ export async function renderPage(data: WeatherData): Promise<void> {
 getWeatherByIp()
     .then((data) => {
         renderPage(data);
-        populateDaysForecast(data.forecast);
     })
     .catch((err) => {
         console.error(err);
@@ -30,7 +27,6 @@ getWeatherByIp()
         getWeatherData("Fortaleza")
             .then((data) => {
                 renderPage(data);
-                populateDaysForecast(data.forecast);
             })
             .catch((err) => {
                 console.error(err);
@@ -42,6 +38,5 @@ getWeatherByIp()
 getWeatherByGeolocation()
     .then((data) => {
         renderPage(data);
-        populateDaysForecast(data.forecast);
     })
     .catch((err) => console.error(err));

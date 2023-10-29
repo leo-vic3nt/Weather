@@ -1,7 +1,7 @@
 .forecast {
-
     display: grid;
     gap: 10px;
+    padding-bottom: var(--spacing-xxs);
 
     .forecast__picker {
         display: flex;
@@ -23,14 +23,15 @@
         }
     }
 
-    .forecast__days{
-        display:flex;
+    .forecast__days {
+        display: none;
         justify-content: center;
         gap: 100px;
     }
 
     .forecast__hours {
-
+        display: flex;
+        justify-content: space-between;
     }
 
     .forecast__card-days {
@@ -38,7 +39,7 @@
         flex-direction: column;
         align-items: center;
 
-        .day{
+        .day {
             font-weight: var(--fw-semi-bold);
         }
 
@@ -64,7 +65,26 @@
         }
     }
 
-    .forecast__card-hours{
+    .forecast__card-hours {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
+        .hour {
+            font-weight: var(--fw-light);
+        }
+
+        .temperature {
+            font-weight: var(--fw-semi-bold);
+        }
+
+        .condition-icon {
+            width: 50px;
+
+            @media (min-width: 1400px) {
+                width: 70px;
+            }
+        }
     }
 }
