@@ -10,18 +10,20 @@
     .forecast__picker {
         display: flex;
         justify-content: center;
-        gap: var(--spacing-xxs);
-
-        &--active {
-            border: 2px solid var(--full-white) !important;
-        }
+        gap: var(--spacing-md);
 
         button {
             cursor: pointer;
-            padding: 2px 4px;
+            width: 100px;
+            padding: 2px;
             background: transparent;
-            border: none;
+            border: 2px solid transparent;
             color: var(--full-white);
+            font-weight: var(--fw-bold);
+        }
+
+        &--active {
+            border: 2px solid var(--full-white) !important;
         }
     }
 
