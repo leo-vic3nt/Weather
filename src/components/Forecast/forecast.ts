@@ -99,7 +99,7 @@ function createNext24HoursForecast(weatherData: WeatherData) {
         hoursForecastContainer.appendChild(createHourCard(hour));
     });
 
-    for (let i = nrHoursCreated; i < 24; i++) {
+    for (let i = 0; i < 24 - nrHoursCreated; i++) {
         hoursForecastContainer.appendChild(createHourCard(nextDayHoursForecast[i]));
     }
 }
