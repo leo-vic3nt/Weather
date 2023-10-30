@@ -3,6 +3,10 @@
     gap: 10px;
     padding-bottom: var(--spacing-xxs);
 
+    @media (min-width: 1400px) {
+        font-size: var(--font-size-1);
+    }
+
     .forecast__picker {
         display: flex;
         justify-content: center;
@@ -13,31 +17,55 @@
         }
 
         button {
-            width: 80px;
             cursor: pointer;
+            padding: 2px 4px;
             background: transparent;
             border: none;
-            padding-bottom: 2px;
             color: var(--full-white);
-            padding: 2px 0;
         }
     }
 
     .forecast__days {
-        display: none;
+        display: flex;
         justify-content: center;
-        gap: 100px;
+        gap: var(--spacing-xxxl);
+
+        padding-bottom: 7px;
+        @media (min-width: 1400px) {
+            padding-bottom: 14px;
+        }
     }
 
     .forecast__hours {
-        display: flex;
-        justify-content: space-between;
+        display: none;
+        gap: var(--spacing-xxxl);
+        overflow: auto;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar {
+            height: 7px;
+
+            @media (min-width: 1400px) {
+                height: 14px;
+            }
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 10px;
+        }
+
+        // Firefox
+        scrollbar-color: #fff transparent;
+        scrollbar-width: thin;
     }
 
     .forecast__card-days {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+        gap: var(--spacing-xs);
 
         .day {
             font-weight: var(--fw-semi-bold);
@@ -69,6 +97,8 @@
         width: fit-content;
         display: flex;
         flex-direction: column;
+        gap: var(--spacing-xs);
+        justify-content: space-between;
         align-items: center;
 
         .hour {

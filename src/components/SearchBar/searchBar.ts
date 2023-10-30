@@ -25,6 +25,7 @@ function handleFormSubmit(submitEvent: SubmitEvent): void {
     getWeatherData(sanitizedString)
         .then((data) => {
             removeErrorMessage();
+
             renderPage(data).then(() => fadeIn());
             locationInput.value = "";
         })

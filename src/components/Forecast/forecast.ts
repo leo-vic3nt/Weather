@@ -1,5 +1,7 @@
 import { WEATHER_ICONS } from "../../ts/imagesMapping";
-import { Forecast, Forecastday, Hour } from "../../ts/weatherApiInterfaces";
+import { Forecast, Forecastday, Hour, WeatherData } from "../../ts/weatherApiInterfaces";
+
+export { renderForecast };
 
 const dailyPicker = document.querySelector(".picker__days") as HTMLButtonElement;
 const hourlyPicker = document.querySelector(".picker__hours") as HTMLButtonElement;
@@ -50,7 +52,7 @@ function createDayCard(day: Forecastday) {
 
     return card;
 }
-function populateDaysForecast(forecast: Forecast) {
+function createNextTwoDaysForecast(forecast: Forecast) {
     const daysForecast = document.querySelector(".forecast__days") as HTMLDivElement;
     // Clear before repopulating
     daysForecast.textContent = "";
@@ -79,18 +81,36 @@ function createHourCard(hour: Hour) {
 
     const temperature = document.createElement("p");
     temperature.classList.add("temperature");
-    temperature.textContent = `${hour.temp_c}°C`;
+    temperature.textContent = `${hour.temp_c.toFixed(0)}°C`;
 
     hourCard.append(hourValue, conditionIcon, temperature);
 
     return hourCard;
 }
 
-function populateHoursForecast(forecast: Forecast) {
-    
+function createNext24HoursForecast(weatherData: WeatherData) {
+    let nrHoursCreated = 0;
+    const currentTimeHours = new Date(weatherData.location.localtime).getHours();
+    const remaningHoursOfTodayForecast = weatherData.forecast.forecastday[0].hour.slice(currentTimeHours + 1);
+    const nextDayHoursForecast = weatherData.forecast.forecastday[1].hour;
 
+    remaningHoursOfTodayForecast.forEach((hour) => {
+        nrHoursCreated++;
+        hoursForecastContainer.appendChild(createHourCard(hour));
+    });
 
+    for (let i = nrHoursCreated; i < 24; i++) {
+        hoursForecastContainer.appendChild(createHourCard(nextDayHoursForecast[i]));
+    }
 }
 
-dailyPicker.addEventListener("click", toggleForecastType);
-hourlyPicker.addEventListener("click", toggleForecastType);
+function renderForecast(weatherData: WeatherData) {
+    daysForecastContainer.textContent = "";
+    hoursForecastContainer.textContent = "";
+
+    createNextTwoDaysForecast(weatherData.forecast);
+    createNext24HoursForecast(weatherData);
+
+    dailyPicker.addEventListener("click", toggleForecastType);
+    hourlyPicker.addEventListener("click", toggleForecastType);
+}
