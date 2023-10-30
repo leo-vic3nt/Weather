@@ -8,6 +8,7 @@ Learned how to better organize the code into components. How to use the BEM nami
 
 Exciting stuff 😁
 
+# Features
 **Get the weather condition of your current location, or anywhere you wish to look 🔎**
 
 - Current, Min and Max temperature 🌡
