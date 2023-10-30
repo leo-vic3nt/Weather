@@ -3,7 +3,7 @@ Checkout the live demo [here](https://quickweather.pages.dev/) 👈
 
 # Quick Weather
 
-I've learned a lot building this project. It was made with Vite, Typescript and Scss and the [Weather Api](https://www.weatherapi.com/).
+I've learned a lot building this project. It was made with Vite, Typescript, Scss and the [Weather Api](https://www.weatherapi.com/). No frameworks.
 Learned how to better organize the code into components. How to use the BEM naming convention and overall and i feel i leveled up my coding skills. 
 
 Exciting stuff 😁
