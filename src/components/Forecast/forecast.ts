@@ -16,7 +16,7 @@ function toggleForecastType(click: MouseEvent): void {
 
     const clickedBtn = click.target as HTMLButtonElement;
     clickedBtn.classList.add("forecast__picker--active");
-    if (clickedBtn.textContent === "Daily") {
+    if (clickedBtn.textContent === "Days") {
         daysForecastContainer.style.display = "flex";
     } else {
         hoursForecastContainer.style.display = "flex";
