@@ -1,3 +1,6 @@
+## Demo
+Checkout the live demo [here](https://quickweather.pages.dev/) 👈
+
 # Quick Weather
 
 I've learned a lot building this project. It was made with Vite, Typescript and Scss and the [Weather Api](https://www.weatherapi.com/).
@@ -31,5 +34,7 @@ Exciting stuff 😁
 
 
 ## Check the weather of anywhere in the world, in real time
-- After a query on the search bar, the page is rendered again with the update stats and data time of the searched location 😄
+- After a query on the search bar, the page is rendered again with the updated stats and data time of the searched location 😄
 
+## Preview
+![App Preview](https://i.imgur.com/DByhUur.png)
