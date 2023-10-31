@@ -5,6 +5,7 @@ export { displayDateTime };
 function getLocalTimeDateObj(apiResponse: WeatherData): Date {
     // Api response localtime property format: "YYYY-MM-DD HH:MM"
     const dateResponse = apiResponse.location.localtime;
+
     return new Date(dateResponse);
 }
 
@@ -40,9 +41,28 @@ function renderTime(time: string): void {
     timeElement.textContent = time;
 }
 
+function createClock() {
+    let intervalId: number | null = null;
+
+    return {
+        start: function (currentTime: Date) {
+            if (intervalId !== null) {
+                clearInterval(intervalId);
+            }
+
+            intervalId = setInterval(() => {
+                currentTime.setSeconds(currentTime.getSeconds() + 1);
+                renderTime(formatTime(currentTime));
+            }, 1000);
+        },
+    };
+}
+
+const clock = createClock();
+
 function displayDateTime(apiResponse: WeatherData): void {
     const date = getLocalTimeDateObj(apiResponse);
 
     renderDate(formatDate(date));
-    renderTime(formatTime(date));
+    clock.start(date);
 }
