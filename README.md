@@ -1,5 +1,5 @@
-## Demo
-Checkout the live demo [here](https://quickweather.pages.dev/) 👈
+# Demo
+### Checkout the live demo [here](https://quickweather.pages.dev/) 👈
 
 # Quick Weather
 
