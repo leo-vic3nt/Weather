@@ -20,9 +20,9 @@ function loadIcon(weatherData: WeatherData): Promise<void> {
         const conditionIcon = document.querySelector(".hero-section__condition-icon") as HTMLImageElement;
 
         if (weatherData.current.is_day) {
-            conditionIcon.src = WEATHER_ICONS.day[currentConditionText];
+            conditionIcon.src = WEATHER_ICONS.day[currentConditionText.trim()];
         } else {
-            conditionIcon.src = WEATHER_ICONS.night[currentConditionText];
+            conditionIcon.src = WEATHER_ICONS.night[currentConditionText.trim()];
         }
 
         conditionIcon.onload = function () {

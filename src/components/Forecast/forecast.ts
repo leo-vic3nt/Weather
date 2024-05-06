@@ -35,7 +35,7 @@ function createDayCard(day: Forecastday) {
     currentDay.textContent = days[date.getDay()];
 
     const conditionIcon = new Image();
-    conditionIcon.src = WEATHER_ICONS.day[day.day.condition.text];
+    conditionIcon.src = WEATHER_ICONS.day[day.day.condition.text.trim()];
     conditionIcon.classList.add("condition-icon");
 
     const minMax = document.createElement("div");
@@ -74,9 +74,9 @@ function createHourCard(hour: Hour) {
     const conditionIcon = new Image();
     conditionIcon.classList.add("condition-icon");
     if (hour.is_day) {
-        conditionIcon.src = WEATHER_ICONS.day[hour.condition.text];
+        conditionIcon.src = WEATHER_ICONS.day[hour.condition.text.trim()];
     } else {
-        conditionIcon.src = WEATHER_ICONS.night[hour.condition.text];
+        conditionIcon.src = WEATHER_ICONS.night[hour.condition.text.trim()];
     }
 
     const temperature = document.createElement("p");
