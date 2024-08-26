@@ -19,6 +19,7 @@ export const WEATHER_ICONS: WeatherIconsInterface = {
   day: {
     Sunny: "/icons/Weather-Icons/day/sunny.svg",
     "Partly Cloudy": "/icons/Weather-Icons/day/partly-cloudy-day.svg",
+    "Partly cloudy": "/icons/Weather-Icons/day/partly-cloudy-day.svg",
     Cloudy: "/icons/Weather-Icons/day/partly-cloudy-day.svg",
     Overcast: "/icons/Weather-Icons/overcast.svg",
     Mist: "/icons/Weather-Icons/day/mist.svg",
@@ -71,6 +72,7 @@ export const WEATHER_ICONS: WeatherIconsInterface = {
   night: {
     Clear: "/icons/Weather-Icons/night/clear.svg",
     "Partly Cloudy": "/icons/Weather-Icons/night/cloudy-night.svg",
+    "Partly cloudy": "/icons/Weather-Icons/night/cloudy-night.svg",
     "Patchy rain nearby": "/icons/Weather-Icons/drizzle.svg",
     Cloudy: "/icons/Weather-Icons/night/cloudy-night.svg",
     Overcast: "/icons/Weather-Icons/overcast.svg",
